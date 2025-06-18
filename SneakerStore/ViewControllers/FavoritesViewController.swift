@@ -42,7 +42,7 @@ extension FavoritesViewController {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.titleTextAttributes = [
-            .font: UIFont.systemFont(ofSize: 14, weight: .medium),
+            .font: UIFont.systemFont(ofSize: 16, weight: .medium),
             .foregroundColor: UIColor.label
         ]
         
