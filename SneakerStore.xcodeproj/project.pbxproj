@@ -1,0 +1,528 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0B168B252DBA83F600E27781 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B168B1A2DBA83F600E27781 /* Assets.xcassets */; };
+		0B168B272DBA83F600E27781 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B168B1D2DBA83F600E27781 /* LaunchScreen.storyboard */; };
+		0B168B292DBA83F600E27781 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B192DBA83F600E27781 /* AppDelegate.swift */; };
+		0B168B2A2DBA83F600E27781 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B202DBA83F600E27781 /* SceneDelegate.swift */; };
+		0B168B2B2DBA83F600E27781 /* SneakerStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B212DBA83F600E27781 /* SneakerStore.xcdatamodeld */; };
+		0B168B312DBA84B700E27781 /* Sneaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B302DBA84B700E27781 /* Sneaker.swift */; };
+		0B168B332DBA8D6100E27781 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B322DBA8D6100E27781 /* MainTabBarController.swift */; };
+		0B168B372DBA8DD200E27781 /* CatalogueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B362DBA8DD200E27781 /* CatalogueViewController.swift */; };
+		0B168B392DBA8E0500E27781 /* SneakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B382DBA8E0500E27781 /* SneakerDetailViewController.swift */; };
+		0B168B3B2DBA8E1D00E27781 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B3A2DBA8E1D00E27781 /* CartViewController.swift */; };
+		0B168B3D2DBA8E5E00E27781 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B3C2DBA8E5E00E27781 /* FavoritesViewController.swift */; };
+		0B168B412DBA9DFF00E27781 /* CatalogueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B402DBA9DFF00E27781 /* CatalogueView.swift */; };
+		0B168B442DBBA75400E27781 /* CatalogueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B432DBBA75400E27781 /* CatalogueCell.swift */; };
+		0B168B472DBBB01300E27781 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B462DBBB01300E27781 /* UILabelExtension.swift */; };
+		0B168B4B2DBBF09700E27781 /* UIStackViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B4A2DBBF09700E27781 /* UIStackViewExtension.swift */; };
+		0B168B4D2DBE8A4400E27781 /* SneakerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B4C2DBE8A4400E27781 /* SneakerDetailView.swift */; };
+		0B168B4F2DBF99C500E27781 /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B4E2DBF99C500E27781 /* UIButtonExtension.swift */; };
+		0B168B512DBFDCE400E27781 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B502DBFDCE400E27781 /* CartCell.swift */; };
+		0B168B532DBFE20200E27781 /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B522DBFE20200E27781 /* CartView.swift */; };
+		0B168B552DC2377D00E27781 /* CartBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B542DC2377D00E27781 /* CartBottomSheetViewController.swift */; };
+		0B168B572DC2381B00E27781 /* CartBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B562DC2381B00E27781 /* CartBottomSheetView.swift */; };
+		0B168B5D2DC388AF00E27781 /* CartDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B5C2DC388AF00E27781 /* CartDataManager.swift */; };
+		0B168B612DC91FC400E27781 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B602DC91FC400E27781 /* FavoriteView.swift */; };
+		0B168B632DC9246E00E27781 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B622DC9246E00E27781 /* FavoriteCell.swift */; };
+		0B168B652DCA740400E27781 /* CatalogueDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B168B642DCA740400E27781 /* CatalogueDataManager.swift */; };
+		0B1F03AA2DD25DB00050EC53 /* CarouselImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */; };
+		0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */; };
+		0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0B168AFB2DBA838800E27781 /* SneakerStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakerStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B168B192DBA83F600E27781 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0B168B1A2DBA83F600E27781 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0B168B1B2DBA83F600E27781 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0B168B1C2DBA83F600E27781 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0B168B202DBA83F600E27781 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0B168B242DBA83F600E27781 /* SneakerStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SneakerStore.xcdatamodel; sourceTree = "<group>"; };
+		0B168B302DBA84B700E27781 /* Sneaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sneaker.swift; sourceTree = "<group>"; };
+		0B168B322DBA8D6100E27781 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		0B168B362DBA8DD200E27781 /* CatalogueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueViewController.swift; sourceTree = "<group>"; };
+		0B168B382DBA8E0500E27781 /* SneakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDetailViewController.swift; sourceTree = "<group>"; };
+		0B168B3A2DBA8E1D00E27781 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		0B168B3C2DBA8E5E00E27781 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		0B168B402DBA9DFF00E27781 /* CatalogueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueView.swift; sourceTree = "<group>"; };
+		0B168B432DBBA75400E27781 /* CatalogueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueCell.swift; sourceTree = "<group>"; };
+		0B168B462DBBB01300E27781 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		0B168B4A2DBBF09700E27781 /* UIStackViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtension.swift; sourceTree = "<group>"; };
+		0B168B4C2DBE8A4400E27781 /* SneakerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDetailView.swift; sourceTree = "<group>"; };
+		0B168B4E2DBF99C500E27781 /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		0B168B502DBFDCE400E27781 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		0B168B522DBFE20200E27781 /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
+		0B168B542DC2377D00E27781 /* CartBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBottomSheetViewController.swift; sourceTree = "<group>"; };
+		0B168B562DC2381B00E27781 /* CartBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBottomSheetView.swift; sourceTree = "<group>"; };
+		0B168B5C2DC388AF00E27781 /* CartDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartDataManager.swift; sourceTree = "<group>"; };
+		0B168B602DC91FC400E27781 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		0B168B622DC9246E00E27781 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		0B168B642DCA740400E27781 /* CatalogueDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueDataManager.swift; sourceTree = "<group>"; };
+		0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageCell.swift; sourceTree = "<group>"; };
+		0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselViewModel.swift; sourceTree = "<group>"; };
+		0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B168AF82DBA838800E27781 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0B168AF22DBA838800E27781 = {
+			isa = PBXGroup;
+			children = (
+				0B168B232DBA83F600E27781 /* SneakerStore */,
+				0B168AFC2DBA838800E27781 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B168AFC2DBA838800E27781 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B168AFB2DBA838800E27781 /* SneakerStore.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B168B182DBA83F600E27781 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B402DBA9DFF00E27781 /* CatalogueView.swift */,
+				0B168B4C2DBE8A4400E27781 /* SneakerDetailView.swift */,
+				0B168B602DC91FC400E27781 /* FavoriteView.swift */,
+				0B168B562DC2381B00E27781 /* CartBottomSheetView.swift */,
+				0B168B522DBFE20200E27781 /* CartView.swift */,
+				0B1F03AE2DDF87860050EC53 /* CellViews */,
+				0B168B422DBBA70600E27781 /* Cells */,
+				0B168B452DBBAF8D00E27781 /* UIKit */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0B168B232DBA83F600E27781 /* SneakerStore */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B192DBA83F600E27781 /* AppDelegate.swift */,
+				0B168B202DBA83F600E27781 /* SceneDelegate.swift */,
+				0B168B2E2DBA840F00E27781 /* Models */,
+				0B168B182DBA83F600E27781 /* Views */,
+				0B168B2D2DBA83F900E27781 /* ViewControllers */,
+				0B168B2F2DBA842000E27781 /* Services */,
+				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
+				0B168B1B2DBA83F600E27781 /* Info.plist */,
+				0B168B1D2DBA83F600E27781 /* LaunchScreen.storyboard */,
+				0B168B212DBA83F600E27781 /* SneakerStore.xcdatamodeld */,
+			);
+			path = SneakerStore;
+			sourceTree = "<group>";
+		};
+		0B168B2D2DBA83F900E27781 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B322DBA8D6100E27781 /* MainTabBarController.swift */,
+				0B168B362DBA8DD200E27781 /* CatalogueViewController.swift */,
+				0B168B382DBA8E0500E27781 /* SneakerDetailViewController.swift */,
+				0B168B3C2DBA8E5E00E27781 /* FavoritesViewController.swift */,
+				0B168B542DC2377D00E27781 /* CartBottomSheetViewController.swift */,
+				0B168B3A2DBA8E1D00E27781 /* CartViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0B168B2E2DBA840F00E27781 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B302DBA84B700E27781 /* Sneaker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0B168B2F2DBA842000E27781 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B642DCA740400E27781 /* CatalogueDataManager.swift */,
+				0B168B5C2DC388AF00E27781 /* CartDataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0B168B422DBBA70600E27781 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B432DBBA75400E27781 /* CatalogueCell.swift */,
+				0B168B622DC9246E00E27781 /* FavoriteCell.swift */,
+				0B168B502DBFDCE400E27781 /* CartCell.swift */,
+				0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */,
+				0B1F03AB2DDF86E50050EC53 /* ViewModels */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		0B168B452DBBAF8D00E27781 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				0B168B462DBBB01300E27781 /* UILabelExtension.swift */,
+				0B168B4E2DBF99C500E27781 /* UIButtonExtension.swift */,
+				0B168B4A2DBBF09700E27781 /* UIStackViewExtension.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		0B1F03AB2DDF86E50050EC53 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0B1F03AE2DDF87860050EC53 /* CellViews */ = {
+			isa = PBXGroup;
+			children = (
+				0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */,
+			);
+			path = CellViews;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0B168AFA2DBA838800E27781 /* SneakerStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0B168B112DBA838900E27781 /* Build configuration list for PBXNativeTarget "SneakerStore" */;
+			buildPhases = (
+				0B168AF72DBA838800E27781 /* Sources */,
+				0B168AF82DBA838800E27781 /* Frameworks */,
+				0B168AF92DBA838800E27781 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SneakerStore;
+			packageProductDependencies = (
+			);
+			productName = SneakerStore;
+			productReference = 0B168AFB2DBA838800E27781 /* SneakerStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0B168AF32DBA838800E27781 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					0B168AFA2DBA838800E27781 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = 0B168AF62DBA838800E27781 /* Build configuration list for PBXProject "SneakerStore" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0B168AF22DBA838800E27781;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 0B168AFC2DBA838800E27781 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0B168AFA2DBA838800E27781 /* SneakerStore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0B168AF92DBA838800E27781 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B168B252DBA83F600E27781 /* Assets.xcassets in Resources */,
+				0B168B272DBA83F600E27781 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B168AF72DBA838800E27781 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0B168B472DBBB01300E27781 /* UILabelExtension.swift in Sources */,
+				0B168B442DBBA75400E27781 /* CatalogueCell.swift in Sources */,
+				0B168B392DBA8E0500E27781 /* SneakerDetailViewController.swift in Sources */,
+				0B168B5D2DC388AF00E27781 /* CartDataManager.swift in Sources */,
+				0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */,
+				0B168B532DBFE20200E27781 /* CartView.swift in Sources */,
+				0B168B512DBFDCE400E27781 /* CartCell.swift in Sources */,
+				0B168B372DBA8DD200E27781 /* CatalogueViewController.swift in Sources */,
+				0B168B412DBA9DFF00E27781 /* CatalogueView.swift in Sources */,
+				0B168B4D2DBE8A4400E27781 /* SneakerDetailView.swift in Sources */,
+				0B168B292DBA83F600E27781 /* AppDelegate.swift in Sources */,
+				0B168B2A2DBA83F600E27781 /* SceneDelegate.swift in Sources */,
+				0B1F03AA2DD25DB00050EC53 /* CarouselImageCell.swift in Sources */,
+				0B168B3D2DBA8E5E00E27781 /* FavoritesViewController.swift in Sources */,
+				0B168B552DC2377D00E27781 /* CartBottomSheetViewController.swift in Sources */,
+				0B168B4B2DBBF09700E27781 /* UIStackViewExtension.swift in Sources */,
+				0B168B652DCA740400E27781 /* CatalogueDataManager.swift in Sources */,
+				0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */,
+				0B168B3B2DBA8E1D00E27781 /* CartViewController.swift in Sources */,
+				0B168B612DC91FC400E27781 /* FavoriteView.swift in Sources */,
+				0B168B4F2DBF99C500E27781 /* UIButtonExtension.swift in Sources */,
+				0B168B2B2DBA83F600E27781 /* SneakerStore.xcdatamodeld in Sources */,
+				0B168B572DC2381B00E27781 /* CartBottomSheetView.swift in Sources */,
+				0B168B332DBA8D6100E27781 /* MainTabBarController.swift in Sources */,
+				0B168B632DC9246E00E27781 /* FavoriteCell.swift in Sources */,
+				0B168B312DBA84B700E27781 /* Sneaker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0B168B1D2DBA83F600E27781 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0B168B1C2DBA83F600E27781 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0B168B122DBA838900E27781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PNCKQ4BG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SneakerStore/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexander.SneakerStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0B168B132DBA838900E27781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 37PNCKQ4BG;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SneakerStore/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Alexander.SneakerStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		0B168B142DBA838900E27781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		0B168B152DBA838900E27781 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0B168AF62DBA838800E27781 /* Build configuration list for PBXProject "SneakerStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B168B142DBA838900E27781 /* Debug */,
+				0B168B152DBA838900E27781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0B168B112DBA838900E27781 /* Build configuration list for PBXNativeTarget "SneakerStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B168B122DBA838900E27781 /* Debug */,
+				0B168B132DBA838900E27781 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0B168B212DBA83F600E27781 /* SneakerStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B168B242DBA83F600E27781 /* SneakerStore.xcdatamodel */,
+			);
+			currentVersion = 0B168B242DBA83F600E27781 /* SneakerStore.xcdatamodel */;
+			path = SneakerStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 0B168AF32DBA838800E27781 /* Project object */;
+}
