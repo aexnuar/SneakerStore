@@ -49,7 +49,7 @@ class CatalogueCell: UICollectionViewCell {
         guard let carouselVC = sneakerCarouselVC else { return }
         carouselView.set(dataSource: carouselVC)
         
-        let isFavorite = sneaker.isFavorite ?? false
+        let isFavorite = sneaker.isFavorite /*?? false*/
         favoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
         favoriteButton.tintColor = .label
     }

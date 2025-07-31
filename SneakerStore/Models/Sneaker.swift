@@ -8,13 +8,13 @@
 import Foundation
 
 struct Sneaker: Equatable/*, Identifiable*/ {
+    
     let brand: String
     let sneaker: String
     let price: String
     let sizesAvailable: [Sizes]
     let sneakerImages: [String]
     var isFavorite = false
-//    let id = UUID()
     
     static func getCatalogue() -> [Sneaker] {
         [
@@ -35,4 +35,7 @@ enum Sizes: String {
     case size41 = "41"
     case size42 = "42"
     case size43 = "43"
+    case size44 = "44"
+    case size45 = "45"
+
 }
