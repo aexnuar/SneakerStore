@@ -11,10 +11,14 @@ class CatalogueViewController: UIViewController {
     
     private let screen = UIScreen.main.bounds
     private let mainView = CatalogueView()
+    
+    override func loadView() {
+        view = mainView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainView
+        
         view.overrideUserInterfaceStyle = .light // ?
         
         //mainView.delegate = self
@@ -41,7 +45,7 @@ class CatalogueViewController: UIViewController {
     }
 }
 
-//MARK: - Private methods
+// MARK: - Private methods
 extension CatalogueViewController {
     private func setupNavBar() {
         navigationItem.title = "Kick lab"
@@ -55,7 +59,7 @@ extension CatalogueViewController {
     }
 }
 
-//MARK: - Data source methods
+// MARK: - Data source methods
 extension CatalogueViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         CatalogueDataManager.shared.returnCatalogueCount()
@@ -72,7 +76,7 @@ extension CatalogueViewController: UICollectionViewDataSource {
     }
 }
 
-//MARK: - Collection view delegate flow layout
+// MARK: - Collection view delegate flow layout
 extension CatalogueViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.item % 3 == 2 { // делимое / делитель (большая коробка / маленькая)

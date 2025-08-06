@@ -27,7 +27,7 @@ class SneakerDetailView: UIView {
         backgroundColor = .brown // change to white later
         
         setupCartButton()
-        setupSubview(carouselView, brandLabel, sneakerLabel, priceLabel)
+        setupSubviews(carouselView, brandLabel, sneakerLabel, priceLabel)
         setupConstraints()
     }
     
@@ -41,10 +41,10 @@ class SneakerDetailView: UIView {
 //        priceLabel.text = sneaker.price + " ₽"
 //    }
     
-    func configure(brand: String, sneaker: String, price: String) { // обновил метод
-        brandLabel.text = brand
-        sneakerLabel.text = sneaker
-        priceLabel.text = price
+    func configure(_ viewModel: SneakerDetailViewModel) { // обновил метод
+        brandLabel.text = viewModel.brand
+        sneakerLabel.text = viewModel.sneaker
+        priceLabel.text = viewModel.price
     }
     
     private func setupCartButton() {
@@ -70,7 +70,7 @@ class SneakerDetailView: UIView {
         ])
     }
     
-    private func setupSubview(_ subviews: UIView...) {
+    private func setupSubviews(_ subviews: UIView...) {
         addSubview(scrollView)
         addSubview(addToCartButton)
         scrollView.addSubview(contentView)
@@ -120,4 +120,10 @@ class SneakerDetailView: UIView {
             priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
+}
+
+struct SneakerDetailViewModel {
+    let brand: String
+    let sneaker: String
+    let price: String
 }

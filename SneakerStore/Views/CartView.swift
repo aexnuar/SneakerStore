@@ -31,7 +31,8 @@ class CartView: UIView {
         tableView.backgroundColor = .clear // надо?
         tableView.register(CartCell.self, forCellReuseIdentifier: CartCell.identifier)
         tableView.layer.cornerRadius = 12
-        tableView.separatorStyle = .none
+        //tableView.separatorStyle = .none
+        tableView.separatorInset = .init(top: 20, left: 20, bottom: 0, right: 0)
     }
     
     private func setupSubviews(_ subviews: UIView...) {

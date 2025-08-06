@@ -40,6 +40,9 @@ class CatalogueView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         
+        //layout.minimumLineSpacing = 10 горизон и вертикальн
+        //layout.minimumInteritemSpacing // вертик отступ
+        
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isScrollEnabled = true
         collectionView.showsVerticalScrollIndicator = false

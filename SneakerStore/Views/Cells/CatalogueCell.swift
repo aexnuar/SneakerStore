@@ -60,7 +60,6 @@ class CatalogueCell: UICollectionViewCell {
             $0.numberOfLines = 0
         }
         
-        layer.cornerRadius = 12
         clipsToBounds = true
         
         layer.borderWidth = 1.2

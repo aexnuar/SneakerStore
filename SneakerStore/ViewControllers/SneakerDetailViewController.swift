@@ -64,7 +64,9 @@ class SneakerDetailViewController: UIViewController, UICollectionViewDataSource,
 extension SneakerDetailViewController {
     private func setupViews() {
         //mainView.snфeakerImage.image = UIImage(named: sneaker.sneakerImage)
-        mainView.configure(brand: sneaker.brand, sneaker: sneaker.sneaker, price: sneaker.price)
+//        mainView.configure(brand: sneaker.brand, sneaker: sneaker.sneaker, price: sneaker.price)
+        
+        mainView.configure(.init(brand: sneaker.brand, sneaker: sneaker.sneaker, price: sneaker.price))
 //        mainView.brandLabel.text = sneaker.brand
 //        mainView.sneakerLabel.text = sneaker.sneaker
 //        mainView.priceLabel.text = sneaker.price + " ₽"
