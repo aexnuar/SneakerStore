@@ -36,12 +36,12 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        CartDataManager.shared.returnCartCount()
+        CartDataManager.shared.getCartCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.identifier, for: indexPath) as? CartCell else { return UITableViewCell() }
-        let sneaker = CartDataManager.shared.sneakers[indexPath.row]
+        let sneaker = CartDataManager.shared.getSneaker(at: indexPath)
         cell.configure(with: sneaker)
         cell.removeCellButton.addTarget(self, action: #selector(removeCellButtonTapped), for: .touchUpInside)
         return cell
@@ -54,7 +54,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         mainView.tableView.deselectRow(at: indexPath, animated: true)
         
-        let sneakerDetailVC = SneakerDetailViewController(sneaker: CartDataManager.shared.sneakers[indexPath.row])
+        let sneakerDetailVC = SneakerDetailViewController(sneaker: CartDataManager.shared.getSneaker(at: indexPath))
         present(sneakerDetailVC, animated: true)
     }
 }
@@ -68,7 +68,7 @@ extension CartViewController {
         CartDataManager.shared.removeFromCart(at: indexPath)
         mainView.tableView.reloadData()
         
-        let cartCount = CartDataManager.shared.returnCartCount()
+        let cartCount = CartDataManager.shared.getCartCount()
         
         if cartCount > 0 {
             tabBarController?.viewControllers?[2].tabBarItem.badgeValue = String(cartCount)
@@ -80,14 +80,9 @@ extension CartViewController {
     }
     
     private func setupSummaryTitle() {
-        mainView.itemsLabel.text = String(CartDataManager.shared.sneakers.count) + " товара – " // TODO: настроить падежи, отображение суммы с пробелами
+        mainView.itemsLabel.text = String(CartDataManager.shared.getCartCount()) + " товара – " // TODO: настроить падежи, отображение суммы с пробелами
         
-        var totalPrice = 0
-        
-        CartDataManager.shared.sneakers.forEach {
-            let cleanPrice = $0.price.replacingOccurrences(of: " ", with: "")
-            totalPrice += Int(cleanPrice) ?? 0
-        }
+        let totalPrice = CartDataManager.shared.getTotalPrice()
         
         mainView.totalPriceLabel.text = String(totalPrice) + " ₽"
     }

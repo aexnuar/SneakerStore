@@ -83,7 +83,7 @@ extension SneakerDetailViewController {
     }
     
     private func setupBadge() { // TODO: донастроить бейдж
-        let cartCount = CartDataManager.shared.returnCartCount()
+        let cartCount = CartDataManager.shared.getCartCount()
         
         if cartCount > 0 {
             tabBarController?.viewControllers?[2].tabBarItem.badgeValue = String(cartCount)

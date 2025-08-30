@@ -11,8 +11,8 @@ class CartDataManager {
     
     static let shared = CartDataManager()
     
-    var sneakers: [Sneaker] = []
-    
+    private var sneakers: [Sneaker] = []
+
     private init() {}
     
     func addToCart(sneaker: Sneaker) {
@@ -23,7 +23,21 @@ class CartDataManager {
         sneakers.remove(at: indexPath.row)
     }
     
-    func returnCartCount() -> Int {
+    func getCartCount() -> Int {
         sneakers.count
+    }
+    
+    func getSneaker(at indexPath: IndexPath) -> Sneaker {
+        sneakers[indexPath.row]
+    }
+    
+    func getTotalPrice() -> Int {
+        var totalPrice = 0
+        sneakers.forEach {
+            let cleanPrice = $0.price.replacingOccurrences(of: " ", with: "")
+            totalPrice += Int(cleanPrice) ?? 0
+        }
+        
+        return totalPrice
     }
 }

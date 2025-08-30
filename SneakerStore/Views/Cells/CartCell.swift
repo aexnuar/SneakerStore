@@ -36,12 +36,9 @@ class CartCell: UITableViewCell {
         sneakerLabel.text = sneaker.sneaker
         priceLabel.text = sneaker.price + " ₽"
     }
-}
-
-// MARK: - Private methods
-extension CartCell {
+    
     private func setupViews() {
-        selectionStyle = .none /// скрыть выделение ячейки серым при нажатии
+        selectionStyle = .none /// скрывает выделение ячейки серым при нажатии
         
         containerView.layer.borderWidth = 1.2
         containerView.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.1).cgColor
