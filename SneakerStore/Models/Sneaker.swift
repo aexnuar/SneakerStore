@@ -2,12 +2,12 @@
 //  Catalogue.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import Foundation
 
-struct Sneaker: Equatable/*, Identifiable*/ {
+struct Sneaker: Equatable {
     
     let brand: String
     let sneaker: String
@@ -37,5 +37,4 @@ enum Sizes: String {
     case size43 = "43"
     case size44 = "44"
     case size45 = "45"
-
 }

@@ -2,7 +2,7 @@
 //  CatalogueDataManager.swift
 //  SneakerStore
 //
-//  Created by Alex on 06.05.2025.
+//  Created by aex on 06.05.2025.
 //
 
 import Foundation
@@ -11,14 +11,13 @@ class CatalogueDataManager {
     
     static let shared = CatalogueDataManager()
     
-    /*private*/ var catalogue: [Sneaker] = []
-    /*private*/ var favorites: [Sneaker] = []
+    var catalogue: [Sneaker] = []
+    var favorites: [Sneaker] = []
     
     private init() {}
     
     func addToFavorites(sneaker: Sneaker) {
         favorites.append(sneaker)
-        print(favorites)
     }
     
     func removeFromFavorites(sneaker: Sneaker) {
@@ -34,5 +33,9 @@ class CatalogueDataManager {
     
     func returnCatalogueCount() -> Int {
         catalogue.count
+    }
+    
+    func returFavoritesCount() -> Int {
+        favorites.count
     }
 }

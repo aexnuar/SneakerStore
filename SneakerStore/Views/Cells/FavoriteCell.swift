@@ -24,7 +24,6 @@ class FavoriteCell: UICollectionViewCell {
     
     private let removeCellButton = UIButton()
     
-    //private let sneakerImages = UIImageView()
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
     private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
     private let priceLabel = UILabel(isBold: false, fontSize: 12, fontColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
@@ -55,11 +54,6 @@ class FavoriteCell: UICollectionViewCell {
     }
     
     private func setupViews() {
-//        sneakerImages.isUserInteractionEnabled = true
-//        
-//        sneakerImages.contentMode = .scaleAspectFill
-//        sneakerImages.clipsToBounds = true
-        
         addToCartButton.titleLabel?.font = .systemFont(ofSize: 12)
         addToCartButton.layer.cornerRadius = 6
         
@@ -77,7 +71,7 @@ class FavoriteCell: UICollectionViewCell {
     private func setupConstraints() {
         let stack = UIStackView(views: [brandLabel, sneakerLabel, priceLabel], alignment: .center, axis: .vertical, spacing: 2)
         
-        [/*sneakerImages*/carouselView, stack, addToCartButton].forEach {
+        [carouselView, stack, addToCartButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
@@ -113,13 +107,13 @@ extension FavoriteCell {
     }
     
     @objc private func removeCellButtonTapped() {
-        guard let sneaker = sneaker else { return }
+        guard var sneaker = sneaker else { return }
         print("Кнопка удаления нажата для: \(sneaker)")
         
         CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker)
         
         //sneaker.isFavorite.toggle()
-        self.sneaker?.isFavorite = false
+        sneaker.isFavorite = false
 
         delegate?.reloadFavorites()
     }

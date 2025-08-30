@@ -8,10 +8,9 @@
 import UIKit
 
 class FavoriteView: UIView {
-    
-    //let carouselView = SneakerCarouselView()
-    
+        
     let itemsLabel = UILabel(isBold: false, fontSize: 12)
+    
     var collectionView: UICollectionView!
     
     init() {

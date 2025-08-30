@@ -7,17 +7,26 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
+protocol CartViewControllerDelegate: AnyObject { //!
+    func reloadData()
+}
+
+class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private let mainView = CartView()
+    private lazy var mainView = CartView()
+    
+    weak var delegate: CartViewControllerDelegate? //!
+    
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainView
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         
-        setupNavigationBar()
+        //setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,64 +35,18 @@ class CartViewController: UIViewController {
         mainView.tableView.reloadData()
     }
     
-    private func setupSummaryTitle() {
-        mainView.itemsLabel.text = String(CartDataManager.shared.sneakers.count) + " товара – " // настроить товара, отображение суммы с пробелами
-        
-        var totalPrice = 0
-        
-        CartDataManager.shared.sneakers.forEach {
-            let cleanPrice = $0.price.replacingOccurrences(of: " ", with: "")
-            totalPrice += Int(cleanPrice) ?? 0
-        }
-        
-        mainView.totalPriceLabel.text = String(totalPrice) + " ₽"
-    }
-    
-    private func setupNavigationBar() {
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
-        let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: image, // уменьшить кнопку
-            style: .plain,
-            target: self,
-            action: #selector(closeButtonTapped))
-        
-        navigationItem.leftBarButtonItem?.tintColor = .black
-    }
-    
-    @objc private func closeButtonTapped() {
-        self.dismiss(animated: true)
-    }
-}
-
-extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        CartDataManager.shared.sneakers.count
+        CartDataManager.shared.returnCartCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.identifier, for: indexPath) as? CartCell else { return UITableViewCell() }
         let sneaker = CartDataManager.shared.sneakers[indexPath.row]
         cell.configure(with: sneaker)
-        
         cell.removeCellButton.addTarget(self, action: #selector(removeCellButtonTapped), for: .touchUpInside)
-        
         return cell
     }
     
-    @objc private func removeCellButtonTapped(_ sender: UIButton) {
-        guard let cell = sender.superview?.superview as? CartCell,
-              let indexPath = mainView.tableView.indexPath(for: cell) else { return }
-        
-        CartDataManager.shared.sneakers.remove(at: indexPath.row)
-        mainView.tableView.reloadData()
-        tabBarController?.viewControllers?[2].tabBarItem.badgeValue = String(CartDataManager.shared.sneakers.count)
-        // обновить тут бейдж через делегат
-    }
-}
-
-extension CartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         220
     }
@@ -96,9 +59,54 @@ extension CartViewController: UITableViewDelegate {
     }
 }
 
-//extension CartViewController: AddToCartDelegate {
-//    func addToCart(_ sneaker: Sneaker) {
-//        CartDataManager.addToCart(sneaker: sneaker)
-//        mainView.tableView.reloadData()
-//    }
-//}
+// MARK: - Private methods
+extension CartViewController {
+    @objc private func removeCellButtonTapped(_ sender: UIButton) {
+        guard let cell = sender.superview?.superview as? CartCell,
+              let indexPath = mainView.tableView.indexPath(for: cell) else { return }
+        
+        CartDataManager.shared.removeFromCart(at: indexPath)
+        mainView.tableView.reloadData()
+        
+        let cartCount = CartDataManager.shared.returnCartCount()
+        
+        if cartCount > 0 {
+            tabBarController?.viewControllers?[2].tabBarItem.badgeValue = String(cartCount)
+        } else {
+            tabBarController?.tabBar.items?[2].badgeValue = nil
+        }
+        
+        delegate?.reloadData() //!
+    }
+    
+    private func setupSummaryTitle() {
+        mainView.itemsLabel.text = String(CartDataManager.shared.sneakers.count) + " товара – " // TODO: настроить падежи, отображение суммы с пробелами
+        
+        var totalPrice = 0
+        
+        CartDataManager.shared.sneakers.forEach {
+            let cleanPrice = $0.price.replacingOccurrences(of: " ", with: "")
+            totalPrice += Int(cleanPrice) ?? 0
+        }
+        
+        mainView.totalPriceLabel.text = String(totalPrice) + " ₽"
+    }
+    
+    //    private func setupNavigationBar() {
+    //        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
+    //        let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
+    //
+    //        navigationItem.leftBarButtonItem = UIBarButtonItem(
+    //            image: image, // уменьшить кнопку
+    //            style: .plain,
+    //            target: self,
+    //            action: #selector(closeButtonTapped)
+    //        )
+    //
+    //        navigationItem.leftBarButtonItem?.tintColor = .black
+    //    }
+    
+    //    @objc private func closeButtonTapped() {
+    //        self.dismiss(animated: true)
+    //    }
+}

@@ -21,6 +21,12 @@ class SneakerCarouselView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func set(dataSource: UICollectionViewDataSource & UICollectionViewDelegate) {
+        carouselCollectionView.dataSource = dataSource
+        carouselCollectionView.delegate = dataSource
+        carouselCollectionView.reloadData()
+    }
+    
     private func setupCarousel() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -43,11 +49,5 @@ class SneakerCarouselView: UIView {
             carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             carouselCollectionView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
-    }
-    
-    func set(dataSource: UICollectionViewDataSource & UICollectionViewDelegate) {
-        carouselCollectionView.dataSource = dataSource
-        carouselCollectionView.delegate = dataSource
-        carouselCollectionView.reloadData()
     }
 }

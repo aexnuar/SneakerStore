@@ -35,6 +35,7 @@
 		0B1F03AA2DD25DB00050EC53 /* CarouselImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */; };
 		0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */; };
 		0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */; };
+		0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageCell.swift; sourceTree = "<group>"; };
 		0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselViewModel.swift; sourceTree = "<group>"; };
 		0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselView.swift; sourceTree = "<group>"; };
+		0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				0B168B522DBFE20200E27781 /* CartView.swift */,
 				0B1F03AE2DDF87860050EC53 /* CellViews */,
 				0B168B422DBBA70600E27781 /* Cells */,
+				0B1F03AB2DDF86E50050EC53 /* ViewModels */,
 				0B168B452DBBAF8D00E27781 /* UIKit */,
 			);
 			path = Views;
@@ -166,7 +169,6 @@
 				0B168B622DC9246E00E27781 /* FavoriteCell.swift */,
 				0B168B502DBFDCE400E27781 /* CartCell.swift */,
 				0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */,
-				0B1F03AB2DDF86E50050EC53 /* ViewModels */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */,
+				0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B168B472DBBB01300E27781 /* UILabelExtension.swift in Sources */,
+				0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */,
 				0B168B442DBBA75400E27781 /* CatalogueCell.swift in Sources */,
 				0B168B392DBA8E0500E27781 /* SneakerDetailViewController.swift in Sources */,
 				0B168B5D2DC388AF00E27781 /* CartDataManager.swift in Sources */,

@@ -10,21 +10,23 @@ import UIKit
 class SneakerDetailView: UIView {
     
     let carouselView = SneakerCarouselView()
-    let cartButton = UIButton(type: .custom)
-    let badgeLabel = UILabel()
+    
+    let navCartButton = UIButton(type: .custom)
     let addToCartButton = UIButton(title: "В корзину")
+    
+    let badgeLabel = UILabel()
     
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
     private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
     private let priceLabel = UILabel(isBold: false, fontSize: 12, fontColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
     private let sizeLabel = UILabel(isBold: false, fontSize: 12)
     
-    private let scrollView = UIScrollView()
     private let contentView = UIView()
+    private let scrollView = UIScrollView()
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .brown // change to white later
+        backgroundColor = .brown // TODO: change to white
         
         setupCartButton()
         setupSubviews(carouselView, brandLabel, sneakerLabel, priceLabel)
@@ -35,20 +37,14 @@ class SneakerDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    func setupData(sneaker: Sneaker) { вью ничего не должен знать о модели
-//        brandLabel.text = sneaker.brand
-//        sneakerLabel.text = sneaker.sneaker
-//        priceLabel.text = sneaker.price + " ₽"
-//    }
-    
-    func configure(_ viewModel: SneakerDetailViewModel) { // обновил метод
+    func setupData(_ viewModel: SneakerViewModel) {
         brandLabel.text = viewModel.brand
         sneakerLabel.text = viewModel.sneaker
-        priceLabel.text = viewModel.price
+        priceLabel.text = viewModel.price + " ₽"
     }
     
     private func setupCartButton() {
-        cartButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        navCartButton.setImage(UIImage(systemName: "cart"), for: .normal)
         
         badgeLabel.font = .systemFont(ofSize: 13)
         badgeLabel.textColor = .white
@@ -57,14 +53,12 @@ class SneakerDetailView: UIView {
         badgeLabel.layer.cornerRadius = 9
         badgeLabel.layer.masksToBounds = true
         
-        badgeLabel.isHidden = true
-        
         badgeLabel.translatesAutoresizingMaskIntoConstraints = false
-        cartButton.addSubview(badgeLabel)
+        navCartButton.addSubview(badgeLabel)
         
         NSLayoutConstraint.activate([
-            badgeLabel.topAnchor.constraint(equalTo: cartButton.topAnchor, constant: -6),
-            badgeLabel.trailingAnchor.constraint(equalTo: cartButton.trailingAnchor, constant: 6),
+            badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+            badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 6),
             badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
             badgeLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
@@ -120,10 +114,4 @@ class SneakerDetailView: UIView {
             priceLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
-}
-
-struct SneakerDetailViewModel {
-    let brand: String
-    let sneaker: String
-    let price: String
 }

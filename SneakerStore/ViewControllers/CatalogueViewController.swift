@@ -2,64 +2,51 @@
 //  CatalogueViewController.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit
 
 class CatalogueViewController: UIViewController {
     
+    // MARK: - Properties
     private let screen = UIScreen.main.bounds
-    private let mainView = CatalogueView()
+    private lazy var mainView = CatalogueView()
     
+    // MARK: - Lifecycle
     override func loadView() {
         view = mainView
     }
-
-    override func viewDidLoad() {
+    
+    override func viewDidLoad() { /// если в методе есть овверайд, то скорее всего необходим вызов супер
         super.viewDidLoad()
         
-        view.overrideUserInterfaceStyle = .light // ?
+        view.overrideUserInterfaceStyle = .light /// принудительная установка светлой темы
         
-        //mainView.delegate = self
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         
-        setupNavBar()
+        setupNavigationBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) { // исчезает крупный title при переходе обратно с details
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        mainView.collectionView.reloadData()
+       /*mainView.collectionView.reloadData()*/ /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
     }
     
-    func openDetailPage(sneaker: Sneaker) {
+    // MARK: - Public methods
+    func showDetailPage(with sneaker: Sneaker) {
         let sneakerDetailVC = SneakerDetailViewController(sneaker: sneaker)
         sneakerDetailVC.hidesBottomBarWhenPushed = true
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-       
         navigationController?.pushViewController(sneakerDetailVC, animated: true)
     }
 }
 
-// MARK: - Private methods
-extension CatalogueViewController {
-    private func setupNavBar() {
-        navigationItem.title = "Kick lab"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-    }
-}
-
-// MARK: - Data source methods
+// MARK: - UICollectionViewDataSource
 extension CatalogueViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         CatalogueDataManager.shared.returnCatalogueCount()
@@ -71,18 +58,33 @@ extension CatalogueViewController: UICollectionViewDataSource {
         let sneaker = CatalogueDataManager.shared.catalogue[indexPath.item]
         cell.configure(with: sneaker)
         cell.delegate = self
-            
         return cell
     }
 }
 
-// MARK: - Collection view delegate flow layout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CatalogueViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if indexPath.item % 3 == 2 { // делимое / делитель (большая коробка / маленькая)
-            .init(width: screen.width - 16, height: (screen.width - 16) / 2 * 2 /*/ 3 * 2*/)
+        if indexPath.item % 3 == 2 {
+            .init(width: screen.width - 16, height: (screen.width - 16) / 2 * 2)
         } else {
-            .init(width: screen.width / 2 - 13, height: screen.height / 2 - 40 /*- 200*/)
+            .init(width: screen.width / 2 - 13, height: screen.height / 2 - 40)
         }
     }
 }
+
+// MARK: - Private methods
+extension CatalogueViewController {
+    private func setupNavigationBar() {
+        navigationItem.title = "Kick lab"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+    }
+}
+
+

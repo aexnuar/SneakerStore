@@ -2,7 +2,7 @@
 //  MainTabBarController.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit
@@ -11,10 +11,16 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViewControllers()
         
+        setupViewControllers()
         UITabBar.appearance().tintColor = .label
     }
+    
+//    override func viewWillAppear(_ animated: Bool) { // работает без этого метода
+//        super.viewWillAppear(animated)
+//        
+//        //setupBadge()
+//    }
     
     private func setupViewControllers() {
         let catalogueVC = CatalogueViewController()
@@ -35,4 +41,11 @@ class MainTabBarController: UITabBarController {
         
         print("cart VC from TabBar address: \(Unmanaged.passUnretained(cartVC).toOpaque())")
     }
+    
+//    private func setupBadge() {
+//        let cartCount = CartDataManager.shared.returnCartCount()
+//        if cartCount > 0 {
+//            viewControllers?[2].tabBarItem.badgeValue = String(cartCount)
+//        }
+//    }
 }

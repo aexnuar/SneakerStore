@@ -2,27 +2,33 @@
 //  CartBottomSheetViewController.swift
 //  SneakerStore
 //
-//  Created by Alex on 30.04.2025.
+//  Created by aex on 30.04.2025.
 //
 
 import UIKit
 
+protocol CartBottomSheetViewControllerDelegate: AnyObject {
+    func openCartFromBottomSheet()
+}
+
 class CartBottomSheetViewController: UIViewController {
     
     var sneaker: Sneaker?
+    private lazy var mainView = CartBottomSheetView()
+    weak var delegate: CartBottomSheetViewControllerDelegate?
     
-    private let mainView = CartBottomSheetView()
+    override func loadView() {
+        view = mainView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = mainView
-        
         setupViews()
         setupActions()
     }
 }
 
-//MARK: - Private methods
+// MARK: - Private methods
 extension CartBottomSheetViewController {
     private func setupViews() {
         guard let sneaker = sneaker else {
@@ -30,25 +36,23 @@ extension CartBottomSheetViewController {
             return
         }
         
-        mainView.brandLabel.text = sneaker.brand
-        mainView.sneakerLabel.text = sneaker.sneaker
-        mainView.priceLabel.text = sneaker.price + " ₽"
+        mainView.setupData(viewModel: .init(
+            brand: sneaker.brand,
+            sneaker: sneaker.sneaker,
+            price: sneaker.price
+        ))
     }
     
     private func setupActions() {
-        mainView.continueShoppingButton.addTarget(self, action: #selector(continueShoppingButtonTapped), for: .touchUpInside)
-        mainView.goToCartButton.addTarget(self, action: #selector(goToCartButtonTapped), for: .touchUpInside)
+        mainView.addActionForContinueShoppingButton(target: self, action: #selector(continueShoppingButtonTapped))
+        mainView.addActionForShowCartButton(target: self, action: #selector(showCartButtonTapped))
     }
     
     @objc private func continueShoppingButtonTapped() {
         dismiss(animated: true)
     }
     
-    @objc private func goToCartButtonTapped() {
-        let cartVC = CartViewController()
-        let navVC = UINavigationController(rootViewController: cartVC)
-        navVC.modalPresentationStyle = .fullScreen
-        
-        present(navVC, animated: true)
+    @objc private func showCartButtonTapped() {
+        delegate?.openCartFromBottomSheet()
     }
 }

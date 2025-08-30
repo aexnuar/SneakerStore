@@ -9,10 +9,10 @@ import UIKit
 
 class CarouselImageCell: UICollectionViewCell {
 
-    private let imageView = UIImageView()
-
     static let identifier = "CarouselImageCell"
 
+    private let imageView = UIImageView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupImageView()
@@ -27,14 +27,13 @@ class CarouselImageCell: UICollectionViewCell {
         imageView.image = UIImage(named: imageString ?? "")
     }
 
+
     private func setupImageView() {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 12
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
-
-        // ВАЖНО: добавляем в contentView
         contentView.addSubview(imageView)
 
         NSLayoutConstraint.activate([

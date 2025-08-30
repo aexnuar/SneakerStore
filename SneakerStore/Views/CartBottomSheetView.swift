@@ -2,24 +2,23 @@
 //  CartBottomSheetView.swift
 //  SneakerStore
 //
-//  Created by Alex on 30.04.2025.
+//  Created by aex on 30.04.2025.
 //
 
 import UIKit
 
 class CartBottomSheetView: UIView {
     
-    let brandLabel = UILabel(isBold: true, fontSize: 22)
-    let sneakerLabel = UILabel(isBold: false, fontSize: 12)
-    let priceLabel = UILabel(isBold: false, fontSize: 12, fontColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
-    
-    let continueShoppingButton = UIButton(title: "Продолжить покупки")
-    let goToCartButton = UIButton(title: "Перейти в корзину")
-    
+    private let brandLabel = UILabel(isBold: true, fontSize: 22)
+    private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
+    private let priceLabel = UILabel(isBold: false, fontSize: 12, fontColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
     private let titleLabel = UILabel(isBold: true, fontSize: 16)
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    private let continueShoppingButton = UIButton(title: "Продолжить покупки")
+    private let showCartButton = UIButton(title: "Перейти в корзину")
+    
+    init() {
+        super.init(frame: .zero)
         backgroundColor = .white
         
         setupViews()
@@ -30,17 +29,35 @@ class CartBottomSheetView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setupData(viewModel: SneakerViewModel) {
+        brandLabel.text = viewModel.brand
+        sneakerLabel.text = viewModel.sneaker
+        priceLabel.text = viewModel.price + " ₽"
+    }
+    
+    //    func addAction(for button: UIButton, action: Selector) -> () {
+    //        button.addTarget(self, action: action, for: .touchUpInside)
+    //    }
+    
+    func addActionForContinueShoppingButton(target: Any?, action: Selector) {
+        continueShoppingButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
+    func addActionForShowCartButton(target: Any?, action: Selector) -> () {
+        showCartButton.addTarget(target, action: action, for: .touchUpInside)
+    }
+    
     private func setupViews() {
         titleLabel.text = "Товар добавлен в корзину".uppercased()
         
-        goToCartButton.backgroundColor = .white
-        goToCartButton.tintColor = .black
-        goToCartButton.layer.borderWidth = 1.2
-        goToCartButton.layer.borderColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        showCartButton.backgroundColor = .white
+        showCartButton.tintColor = .black
+        showCartButton.layer.borderWidth = 1.2
+        showCartButton.layer.borderColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
     }
     
     private func setupConstreints() {
-        let buttonsStack = UIStackView(views: [continueShoppingButton, goToCartButton], axis: .vertical, spacing: 10)
+        let buttonsStack = UIStackView(views: [continueShoppingButton, showCartButton], axis: .vertical, spacing: 10)
         let labelsStack = UIStackView(views: [sneakerLabel, priceLabel], alignment: .center, axis: .vertical, spacing: 4)
         
         [titleLabel, brandLabel, buttonsStack, labelsStack].forEach {
