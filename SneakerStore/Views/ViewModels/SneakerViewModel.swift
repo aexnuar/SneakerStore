@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct SneakerViewModel {
+    
+    let brand: String
+    let sneaker: String
+    let price: String
+}
