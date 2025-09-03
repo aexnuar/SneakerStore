@@ -11,12 +11,11 @@ protocol CartViewControllerDelegate: AnyObject { //!
     func reloadData()
 }
 
-class CartViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CartViewController: UIViewController {
     
     private lazy var mainView = CartView()
     
     weak var delegate: CartViewControllerDelegate? //!
-    
     
     override func loadView() {
         view = mainView
@@ -35,7 +34,10 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         configureFinalTitle()
         mainView.tableView.reloadData()
     }
-    
+}
+
+// MARK: - UITableViewDataSource
+extension CartViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         CartDataManager.shared.getCartCount()
     }
@@ -47,7 +49,10 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.removeCellButton.addTarget(self, action: #selector(removeCellButtonTapped), for: .touchUpInside)
         return cell
     }
-    
+}
+
+// MARK: - UITableViewDelegate
+extension CartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         220
     }
@@ -86,26 +91,33 @@ extension CartViewController {
         let cartCount = CartDataManager.shared.getCartCount()
         let totalPrice = CartDataManager.shared.getTotalPrice()
         
-        mainView.itemsLabel.text = "\(cartCount) \(getFormattedItem(for: cartCount))"
-        mainView.totalPriceLabel.text = "\(totalPrice) ₽"
+        mainView.itemsLabel.text = "\(cartCount) \(formatItem(for: cartCount)) — "
+        mainView.totalPriceLabel.text = "\(formatPrice(totalPrice)) ₽"
     }
     
-    private func getFormattedItem(for count: Int) -> String {
+    private func formatItem(for count: Int) -> String {
         let remainder10 = count % 10
         let remainder100 = count % 100
         
         if remainder10 == 1 && remainder100 != 11 {
-            return "товар — "
+            return "товар"
         } else if (2...4).contains(remainder10) && !(12...14).contains(remainder100) {
-            return "товара — "
+            return "товара"
         } else {
-            return "товаров — "
+            return "товаров"
         }
     }
     
-    private func setupNavigationBar() {
-        navigationItem.hidesBackButton = true
+    private func formatPrice(_ price: Int) -> String {
+        let formatter = NumberFormatter()
         
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = " "
+        
+        return formatter.string(from: NSNumber(value: price)) ?? String(price)
+    }
+    
+    private func setupNavigationBar() {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
         let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
         
@@ -117,6 +129,12 @@ extension CartViewController {
         )
         
         navigationItem.leftBarButtonItem?.tintColor = .black
+        
+        let appearance = UINavigationBarAppearance() /// скрываем серый в нав баре при скролле тейбл вью снизу вверх
+        appearance.configureWithTransparentBackground()
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     @objc private func closeButtonTapped() {

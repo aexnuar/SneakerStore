@@ -32,6 +32,7 @@ class CartView: UIView {
     private func setupTableView() {
         tableView.register(CartCell.self, forCellReuseIdentifier: CartCell.identifier)
         tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func setupSubviews(_ subviews: UIView...) {

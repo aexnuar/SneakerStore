@@ -40,7 +40,7 @@ class SneakerDetailView: UIView {
     func configure(with viewModel: SneakerViewModel) {
         brandLabel.text = viewModel.brand
         sneakerLabel.text = viewModel.sneaker
-        priceLabel.text = viewModel.price + " ₽"
+        priceLabel.text = "\(viewModel.price) ₽"
     }
     
     private func setupCartButton() {

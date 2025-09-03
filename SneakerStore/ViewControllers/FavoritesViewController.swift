@@ -26,7 +26,7 @@ class FavoritesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         mainView.collectionView.reloadData()
-        configureSummaryTitle()
+        configureItemsTitle()
     }
 }
 
@@ -58,8 +58,23 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Private methods
 extension FavoritesViewController {
-    private func configureSummaryTitle() {
-        mainView.itemsLabel.text = String(CatalogueDataManager.shared.getFavoritesCount()) + " товара"
+    private func configureItemsTitle() {
+        let favoritesCount = CatalogueDataManager.shared.getFavoritesCount()
+        
+        mainView.itemsLabel.text = "\(favoritesCount) \(formatItem(for: favoritesCount))"
+    }
+    
+    private func formatItem(for count: Int) -> String {
+        let remainder10 = count % 10
+        let remainder100 = count % 100
+        
+        if remainder10 == 1 && remainder100 != 11 {
+            return "товар"
+        } else if (2...4).contains(remainder10) && !(12...14).contains(remainder100) {
+            return "товара"
+        } else {
+            return "товаров"
+        }
     }
     
     private func setupNavigationBar() {
@@ -94,6 +109,7 @@ extension FavoritesViewController {
 
 extension FavoritesViewController: FavoriteCellDelegate {
     func reloadFavorites() {
+        configureItemsTitle()
         mainView.collectionView.reloadData() // TODO: реализовать обовление конкретной ячейки
     }
 }

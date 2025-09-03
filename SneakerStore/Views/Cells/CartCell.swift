@@ -35,6 +35,7 @@ class CartCell: UITableViewCell {
         brandLabel.text = sneaker.brand
         sneakerLabel.text = sneaker.sneaker
         priceLabel.text = sneaker.price + " ₽"
+        sneakerImage.image = UIImage(named: sneaker.sneakerImages.first ?? "")
     }
     
     private func setupViews() {
