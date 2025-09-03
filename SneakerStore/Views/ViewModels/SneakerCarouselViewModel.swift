@@ -2,7 +2,7 @@
 //  SneakerCarouselViewModel.swift
 //  SneakerStore
 //
-//  Created by Alex on 22.05.2025.
+//  Created by aex on 22.05.2025.
 //
 
 import UIKit
@@ -27,7 +27,6 @@ class SneakerCarouselViewModel: NSObject, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        CGSize(width: contentView.frame.width, height: contentView.frame.height * 0.75)
         CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }

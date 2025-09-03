@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit

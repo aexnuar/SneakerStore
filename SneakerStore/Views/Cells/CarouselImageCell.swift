@@ -2,7 +2,7 @@
 //  CarouselImageCell.swift
 //  SneakerStore
 //
-//  Created by Alex on 12.05.2025.
+//  Created by aex on 12.05.2025.
 //
 
 import UIKit
@@ -16,17 +16,15 @@ class CarouselImageCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupImageView()
-        //contentView.backgroundColor = .brown
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with imageString: String?) {
-        imageView.image = UIImage(named: imageString ?? "")
+    func configure(with imageName: String) {
+        imageView.image = UIImage(named: imageName)
     }
-
 
     private func setupImageView() {
         imageView.contentMode = .scaleAspectFill

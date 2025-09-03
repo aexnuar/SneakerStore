@@ -2,12 +2,12 @@
 //  FavoritesViewController.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit
 
-class FavoritesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class FavoritesViewController: UIViewController {
     
     private let screen = UIScreen.main.bounds
     private lazy var mainView = FavoriteView()
@@ -18,8 +18,6 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad")
-        
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
         
@@ -28,34 +26,40 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
     
     override func viewWillAppear(_ animated: Bool) {
         mainView.collectionView.reloadData()
-        setupSummaryTitle()
+        configureSummaryTitle()
     }
-    
+}
+
+// MARK: - UICollectionViewDataSource
+extension FavoritesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CatalogueDataManager.shared.returFavoritesCount()
+        CatalogueDataManager.shared.getFavoritesCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCell.identifier, for: indexPath) as? FavoriteCell else { return UICollectionViewCell() }
         
-        let sneaker = CatalogueDataManager.shared.favorites[indexPath.item]
-        print(sneaker)
+        let sneaker = CatalogueDataManager.shared.getFavoriteSneaker(at: indexPath)
+    
         cell.configure(with: sneaker)
         
         cell.delegate = self
         
         return cell
     }
-    
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: screen.width / 2 - 13, height: screen.height / 2 - 30)
     }
 }
 
-//MARK: - Private methods
+// MARK: - Private methods
 extension FavoritesViewController {
-    private func setupSummaryTitle() {
-        mainView.itemsLabel.text = String(CatalogueDataManager.shared.returFavoritesCount()) + " товара"
+    private func configureSummaryTitle() {
+        mainView.itemsLabel.text = String(CatalogueDataManager.shared.getFavoritesCount()) + " товара"
     }
     
     private func setupNavigationBar() {
@@ -75,11 +79,11 @@ extension FavoritesViewController {
             image: UIImage(systemName: "cart"),
             style: .plain,
             target: self,
-            action: #selector(openCart)
+            action: #selector(showCart)
         )
     }
     
-    @objc private func openCart() {
+    @objc private func showCart() {
         let cartVC = CartViewController()
         let navCartVC = UINavigationController(rootViewController: cartVC)
         navCartVC.modalPresentationStyle = .fullScreen

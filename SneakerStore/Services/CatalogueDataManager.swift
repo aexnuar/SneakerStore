@@ -31,11 +31,15 @@ class CatalogueDataManager {
         item.isFavorite = false
     }
     
-    func returnCatalogueCount() -> Int {
+    func getCatalogueCount() -> Int {
         catalogue.count
     }
     
-    func returFavoritesCount() -> Int {
+    func getFavoritesCount() -> Int {
         favorites.count
+    }
+    
+    func getFavoriteSneaker(at indexPath: IndexPath) -> Sneaker {
+        favorites[indexPath.item]
     }
 }

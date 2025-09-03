@@ -15,7 +15,7 @@ class CatalogueCell: UICollectionViewCell {
     
     let favoriteButton = UIButton()
     
-    private let carouselView = SneakerCarouselView()
+    private let sneakerCarouselView = SneakerCarouselView()
     private var sneakerCarouselVM: SneakerCarouselViewModel?
     
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
@@ -38,13 +38,13 @@ class CatalogueCell: UICollectionViewCell {
     func configure(with sneaker: Sneaker) {
         brandLabel.text = sneaker.brand
         sneakerLabel.text = sneaker.sneaker
-        priceLabel.text = "\(sneaker.price) ₽"
+        priceLabel.text = sneaker.price + " ₽"
         
         self.sneaker = sneaker
         
         sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
         guard let carouselVM = sneakerCarouselVM else { return }
-        carouselView.set(dataSource: carouselVM)
+        sneakerCarouselView.set(dataSource: carouselVM)
         
         let isFavorite = sneaker.isFavorite
         favoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)
@@ -72,7 +72,7 @@ class CatalogueCell: UICollectionViewCell {
     private func setupConstraints() {
         let stack = UIStackView(views: [brandLabel, sneakerLabel, priceLabel], axis: .vertical, spacing: 2)
         
-        [carouselView, favoriteButton, stack].forEach {
+        [sneakerCarouselView, favoriteButton, stack].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
         }
@@ -81,16 +81,16 @@ class CatalogueCell: UICollectionViewCell {
         contentView.addLayoutGuide(centerGuide)
         
         NSLayoutConstraint.activate([
-            carouselView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            carouselView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            carouselView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            carouselView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75),
+            sneakerCarouselView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            sneakerCarouselView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            sneakerCarouselView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            sneakerCarouselView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.75),
             
             favoriteButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             
             /// Layout guide между каруселью и низом
-            centerGuide.topAnchor.constraint(equalTo: carouselView.bottomAnchor),
+            centerGuide.topAnchor.constraint(equalTo: sneakerCarouselView.bottomAnchor),
             centerGuide.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             /// Стек по центру guide

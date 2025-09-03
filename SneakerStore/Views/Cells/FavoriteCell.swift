@@ -2,7 +2,7 @@
 //  FavoriteCell.swift
 //  SneakerStore
 //
-//  Created by Alex on 05.05.2025.
+//  Created by aex on 05.05.2025.
 //
 
 import UIKit
@@ -20,7 +20,7 @@ class FavoriteCell: UICollectionViewCell {
     weak var delegate: FavoriteCellDelegate?
     
     private let carouselView = SneakerCarouselView()
-    private var sneakerCarouselVC: SneakerCarouselViewModel?
+    private var sneakerCarouselVM: SneakerCarouselViewModel?
     
     private let removeCellButton = UIButton()
     
@@ -47,10 +47,10 @@ class FavoriteCell: UICollectionViewCell {
         
         self.sneaker = sneaker
         
-        sneakerCarouselVC = SneakerCarouselViewModel(images: sneaker.sneakerImages)
+        sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
         
-        guard let carouselVC = sneakerCarouselVC else { return }
-        carouselView.set(dataSource: carouselVC)
+        guard let carouselVM = sneakerCarouselVM else { return }
+        carouselView.set(dataSource: carouselVM)
     }
     
     private func setupViews() {
@@ -112,8 +112,7 @@ extension FavoriteCell {
         
         CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker)
         
-        //sneaker.isFavorite.toggle()
-        sneaker.isFavorite = false
+        sneaker.isFavorite.toggle()
 
         delegate?.reloadFavorites()
     }

@@ -2,7 +2,7 @@
 //  FavoriteView.swift
 //  SneakerStore
 //
-//  Created by Alex on 05.05.2025.
+//  Created by aex on 05.05.2025.
 //
 
 import UIKit
@@ -39,11 +39,9 @@ class FavoriteView: UIView {
     private func setupConstraints() {
         itemsLabel.translatesAutoresizingMaskIntoConstraints = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        //carouselView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(itemsLabel)
         addSubview(collectionView)
-        //collectionView.addSubview(carouselView)
         
         NSLayoutConstraint.activate([
             itemsLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),

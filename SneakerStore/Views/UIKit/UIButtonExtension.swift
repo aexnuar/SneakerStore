@@ -2,7 +2,7 @@
 //  UIButtonExtension.swift
 //  SneakerStore
 //
-//  Created by Alex on 28.04.2025.
+//  Created by aex on 28.04.2025.
 //
 
 import UIKit

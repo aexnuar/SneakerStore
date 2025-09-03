@@ -2,7 +2,7 @@
 //  SneakerDetailView.swift
 //  SneakerStore
 //
-//  Created by Alex on 27.04.2025.
+//  Created by aex on 27.04.2025.
 //
 
 import UIKit
@@ -37,7 +37,7 @@ class SneakerDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupData(_ viewModel: SneakerViewModel) {
+    func configure(with viewModel: SneakerViewModel) {
         brandLabel.text = viewModel.brand
         sneakerLabel.text = viewModel.sneaker
         priceLabel.text = viewModel.price + " ₽"

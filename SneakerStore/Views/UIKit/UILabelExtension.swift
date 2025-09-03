@@ -2,7 +2,7 @@
 //  LabelExtension.swift
 //  SneakerStore
 //
-//  Created by Alex on 25.04.2025.
+//  Created by aex on 25.04.2025.
 //
 
 import UIKit

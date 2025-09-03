@@ -2,7 +2,7 @@
 //  SneakerDetailViewController.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit
@@ -65,7 +65,7 @@ extension SneakerDetailViewController: UICollectionViewDelegateFlowLayout {
 // MARK: - Private methods
 extension SneakerDetailViewController {
     private func setupViews() {
-        mainView.setupData((
+        mainView.configure(with: (
             .init(
                 brand: sneaker.brand,
                 sneaker: sneaker.sneaker,
@@ -93,8 +93,8 @@ extension SneakerDetailViewController {
                     mainView.badgeLabel.removeConstraint(constraint)
                 }
             }
-        
-            if cartCount >= 2 {
+            
+            if cartCount >= 2 { // TODO: make 10 later
                 mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 24).isActive = true
             } else {
                 mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 18).isActive = true
@@ -103,6 +103,7 @@ extension SneakerDetailViewController {
             mainView.badgeLabel.isHidden = false
             mainView.badgeLabel.text = String(cartCount)
         } else {
+            tabBarController?.viewControllers?[2].tabBarItem.badgeValue = nil
             mainView.badgeLabel.isHidden = true
         }
     }
@@ -114,12 +115,12 @@ extension SneakerDetailViewController {
     
     @objc internal func showCart() { // TODO: why internal?
         let cartVC = CartViewController()
-        //        let navigationVC = UINavigationController(rootViewController: cartVC)
-        //        navigationVC.modalPresentationStyle = .fullScreen
-        //
-        //        present(navigationVC, animated: true)
+        let navigationVC = UINavigationController(rootViewController: cartVC)
+        navigationVC.modalPresentationStyle = .fullScreen
         
-        navigationController?.pushViewController(cartVC, animated: true)
+        present(navigationVC, animated: true)
+        
+        //navigationController?.pushViewController(cartVC, animated: true)
     }
     
     @objc private func configureAddToCartButton() {

@@ -29,7 +29,7 @@ class CartBottomSheetView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupData(viewModel: SneakerViewModel) {
+    func configure(with viewModel: SneakerViewModel) {
         brandLabel.text = viewModel.brand
         sneakerLabel.text = viewModel.sneaker
         priceLabel.text = viewModel.price + " ₽"

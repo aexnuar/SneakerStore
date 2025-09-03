@@ -49,7 +49,7 @@ class CatalogueViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension CatalogueViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        CatalogueDataManager.shared.returnCatalogueCount()
+        CatalogueDataManager.shared.getCatalogueCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

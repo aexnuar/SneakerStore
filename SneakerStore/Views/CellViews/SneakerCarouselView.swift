@@ -2,7 +2,7 @@
 //  SneakerCarouselView.swift
 //  SneakerStore
 //
-//  Created by Alex on 22.05.2025.
+//  Created by aex on 22.05.2025.
 //
 
 import UIKit
@@ -30,12 +30,12 @@ class SneakerCarouselView: UIView {
     private func setupCarousel() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0 // ?
+        layout.minimumLineSpacing = 0
         
         carouselCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        carouselCollectionView.isPagingEnabled = true // ?
+        carouselCollectionView.isPagingEnabled = true
         carouselCollectionView.showsHorizontalScrollIndicator = false
-        carouselCollectionView.layer.cornerRadius = 12 //delete later
+        carouselCollectionView.layer.cornerRadius = 12
         carouselCollectionView.register(CarouselImageCell.self, forCellWithReuseIdentifier: CarouselImageCell.identifier)
     }
     

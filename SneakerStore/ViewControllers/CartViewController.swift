@@ -2,7 +2,7 @@
 //  CartViewController.swift
 //  SneakerStore
 //
-//  Created by Alex on 24.04.2025.
+//  Created by aex on 24.04.2025.
 //
 
 import UIKit
@@ -17,6 +17,7 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     weak var delegate: CartViewControllerDelegate? //!
     
+    
     override func loadView() {
         view = mainView
     }
@@ -26,12 +27,12 @@ class CartViewController: UIViewController, UITableViewDataSource, UITableViewDe
         mainView.tableView.dataSource = self
         mainView.tableView.delegate = self
         
-        //setupNavigationBar()
+        setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupSummaryTitle()
+        configureFinalTitle()
         mainView.tableView.reloadData()
     }
     
@@ -76,32 +77,50 @@ extension CartViewController {
             tabBarController?.tabBar.items?[2].badgeValue = nil
         }
         
+        configureFinalTitle()
+        
         delegate?.reloadData() //!
     }
     
-    private func setupSummaryTitle() {
-        mainView.itemsLabel.text = String(CartDataManager.shared.getCartCount()) + " товара – " // TODO: настроить падежи, отображение суммы с пробелами
-        
+    private func configureFinalTitle() {
+        let cartCount = CartDataManager.shared.getCartCount()
         let totalPrice = CartDataManager.shared.getTotalPrice()
         
-        mainView.totalPriceLabel.text = String(totalPrice) + " ₽"
+        mainView.itemsLabel.text = "\(cartCount) \(getFormattedItem(for: cartCount))"
+        mainView.totalPriceLabel.text = "\(totalPrice) ₽"
     }
     
-    //    private func setupNavigationBar() {
-    //        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
-    //        let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
-    //
-    //        navigationItem.leftBarButtonItem = UIBarButtonItem(
-    //            image: image, // уменьшить кнопку
-    //            style: .plain,
-    //            target: self,
-    //            action: #selector(closeButtonTapped)
-    //        )
-    //
-    //        navigationItem.leftBarButtonItem?.tintColor = .black
-    //    }
+    private func getFormattedItem(for count: Int) -> String {
+        let remainder10 = count % 10
+        let remainder100 = count % 100
+        
+        if remainder10 == 1 && remainder100 != 11 {
+            return "товар — "
+        } else if (2...4).contains(remainder10) && !(12...14).contains(remainder100) {
+            return "товара — "
+        } else {
+            return "товаров — "
+        }
+    }
     
-    //    @objc private func closeButtonTapped() {
-    //        self.dismiss(animated: true)
-    //    }
+    private func setupNavigationBar() {
+        navigationItem.hidesBackButton = true
+        
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
+        let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: image,
+            style: .plain,
+            target: self,
+            action: #selector(closeButtonTapped)
+        )
+        
+        navigationItem.leftBarButtonItem?.tintColor = .black
+    }
+    
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true)
+        //navigationController?.popViewController(animated: true)
+    }
 }

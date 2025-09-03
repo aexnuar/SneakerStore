@@ -36,7 +36,7 @@ extension CartBottomSheetViewController {
             return
         }
         
-        mainView.setupData(viewModel: .init(
+        mainView.configure(with: .init(
             brand: sneaker.brand,
             sneaker: sneaker.sneaker,
             price: sneaker.price
