@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Sneaker: Equatable {
+struct Sneaker: Equatable, Hashable {
     
     let brand: String
     let sneaker: String

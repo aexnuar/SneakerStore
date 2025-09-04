@@ -9,7 +9,7 @@ import UIKit
 
 class SneakerDetailView: UIView {
     
-    let carouselView = SneakerCarouselView()
+    let carouselView = SneakerCarouselView(dataSource: SneakerCarouselViewModel())
     
     let navCartButton = UIButton(type: .custom)
     let addToCartButton = UIButton(title: "В корзину")
@@ -62,6 +62,27 @@ class SneakerDetailView: UIView {
             badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
             badgeLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
+    }
+    
+    func changeConstraints(count: Int) {
+        badgeLabel.removeConstraints(badgeLabel.constraints)
+        
+        if count >= 2 { // TODO: make 10 later
+            // TODO: попробовать через фреймы
+            NSLayoutConstraint.activate([
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -4),
+                badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 0),
+                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 24),
+                badgeLabel.heightAnchor.constraint(equalToConstant: 18)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+                badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 6),
+                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
+                badgeLabel.heightAnchor.constraint(equalToConstant: 18)
+            ])
+        }
     }
     
     private func setupSubviews(_ subviews: UIView...) {

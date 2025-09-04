@@ -33,7 +33,7 @@ class CatalogueViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-       /*mainView.collectionView.reloadData()*/ /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
+       mainView.collectionView.reloadData() /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
     }
     
     // MARK: - Public methods
@@ -55,7 +55,9 @@ extension CatalogueViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogueCell.identifier, for: indexPath) as? CatalogueCell else { return UICollectionViewCell() }
         
-        let sneaker = CatalogueDataManager.shared.catalogue[indexPath.item]
+        let sneaker = CatalogueDataManager.shared.getCatalogue(at: indexPath)
+        
+        //CatalogueDataManager.shared.catalogue[indexPath.item]
         cell.configure(with: sneaker)
         cell.delegate = self
         return cell

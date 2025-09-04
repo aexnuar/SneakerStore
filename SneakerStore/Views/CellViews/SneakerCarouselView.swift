@@ -11,8 +11,12 @@ class SneakerCarouselView: UIView {
     
     var carouselCollectionView: UICollectionView!
     
-    init() {
+    var dataSource: SneakerCarouselViewModel
+    
+    init(dataSource: SneakerCarouselViewModel) {
+        self.dataSource = dataSource
         super.init(frame: .zero)
+    
         setupCarousel()
         setupConstraints()
     }
@@ -21,11 +25,11 @@ class SneakerCarouselView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func set(dataSource: UICollectionViewDataSource & UICollectionViewDelegate) {
-        carouselCollectionView.dataSource = dataSource
-        carouselCollectionView.delegate = dataSource
-        carouselCollectionView.reloadData()
-    }
+//    func set(dataSource: UICollectionViewDataSource & UICollectionViewDelegate) {
+////        carouselCollectionView.dataSource = dataSource
+////        carouselCollectionView.delegate = dataSource
+//        carouselCollectionView.reloadData()
+//    }
     
     private func setupCarousel() {
         let layout = UICollectionViewFlowLayout()
@@ -37,6 +41,9 @@ class SneakerCarouselView: UIView {
         carouselCollectionView.showsHorizontalScrollIndicator = false
         carouselCollectionView.layer.cornerRadius = 12
         carouselCollectionView.register(CarouselImageCell.self, forCellWithReuseIdentifier: CarouselImageCell.identifier)
+        
+        carouselCollectionView.dataSource = dataSource
+        carouselCollectionView.delegate = dataSource
     }
     
     private func setupConstraints() {

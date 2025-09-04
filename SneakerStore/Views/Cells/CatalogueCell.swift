@@ -15,8 +15,10 @@ class CatalogueCell: UICollectionViewCell {
     
     let favoriteButton = UIButton()
     
-    private let sneakerCarouselView = SneakerCarouselView()
-    private var sneakerCarouselVM: SneakerCarouselViewModel?
+//    private let sneakerCarouselView = SneakerCarouselView(dataSource: SneakerCarouselViewModel())
+//    private var sneakerCarouselVM: SneakerCarouselViewModel?
+    private lazy var sneakerCarouselView = SneakerCarouselView(dataSource: sneakerCarouselVM)
+    private var sneakerCarouselVM = SneakerCarouselViewModel()
     
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
     private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
@@ -24,7 +26,7 @@ class CatalogueCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .brown
         setupViews()
         setupConstraints()
         setupActions()
@@ -42,9 +44,12 @@ class CatalogueCell: UICollectionViewCell {
         
         self.sneaker = sneaker
         
-        sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
-        guard let carouselVM = sneakerCarouselVM else { return }
-        sneakerCarouselView.set(dataSource: carouselVM)
+//        sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
+//        guard let carouselVM = sneakerCarouselVM else { return }
+        //sneakerCarouselView.set(dataSource: carouselVM)
+        sneakerCarouselVM.setImages(images: sneaker.sneakerImages)
+        
+        sneakerCarouselView.carouselCollectionView.reloadData()
         
         let isFavorite = sneaker.isFavorite
         favoriteButton.setImage(UIImage(systemName: isFavorite ? "heart.fill" : "heart"), for: .normal)

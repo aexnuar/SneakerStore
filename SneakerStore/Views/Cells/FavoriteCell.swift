@@ -19,8 +19,8 @@ class FavoriteCell: UICollectionViewCell {
     
     weak var delegate: FavoriteCellDelegate?
     
-    private let carouselView = SneakerCarouselView()
-    private var sneakerCarouselVM: SneakerCarouselViewModel?
+    private lazy var carouselView = SneakerCarouselView(dataSource: sneakerCarouselVM)
+    private var sneakerCarouselVM = SneakerCarouselViewModel()
     
     private let removeCellButton = UIButton()
     
@@ -31,6 +31,7 @@ class FavoriteCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .brown
         setupViews()
         setupActions()
         setupConstraints()
@@ -47,10 +48,11 @@ class FavoriteCell: UICollectionViewCell {
         
         self.sneaker = sneaker
         
-        sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
+//        sneakerCarouselVM = SneakerCarouselViewModel(images: sneaker.sneakerImages)
         
-        guard let carouselVM = sneakerCarouselVM else { return }
-        carouselView.set(dataSource: carouselVM)
+//        guard let carouselVM = sneakerCarouselVM else { return }
+//        carouselView.set(dataSource: carouselVM)
+        sneakerCarouselVM.setImages(images: sneaker.sneakerImages)
     }
     
     private func setupViews() {
@@ -62,10 +64,15 @@ class FavoriteCell: UICollectionViewCell {
         removeCellButton.setImage(image, for: .normal)
         removeCellButton.tintColor = .label
         
-        [brandLabel, sneakerLabel, priceLabel].forEach {
+        [sneakerLabel, priceLabel].forEach {
             $0.textAlignment = .center
             $0.numberOfLines = 0
         }
+        
+        brandLabel.textAlignment = .center
+        brandLabel.numberOfLines = 1
+        brandLabel.adjustsFontSizeToFitWidth = true
+        brandLabel.minimumScaleFactor = 0.7
     }
     
     private func setupConstraints() {
@@ -73,11 +80,14 @@ class FavoriteCell: UICollectionViewCell {
         
         [carouselView, stack, addToCartButton].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
-            addSubview($0)
+            contentView.addSubview($0)
         }
         
         removeCellButton.translatesAutoresizingMaskIntoConstraints = false
         carouselView.addSubview(removeCellButton)
+        
+        let centerGuide = UILayoutGuide()
+        contentView.addLayoutGuide(centerGuide)
         
         NSLayoutConstraint.activate([
             carouselView.topAnchor.constraint(equalTo: topAnchor),
@@ -88,14 +98,18 @@ class FavoriteCell: UICollectionViewCell {
             removeCellButton.topAnchor.constraint(equalTo: carouselView.topAnchor, constant: 12),
             removeCellButton.trailingAnchor.constraint(equalTo: carouselView.trailingAnchor, constant: -12),
             
-            stack.topAnchor.constraint(equalTo: carouselView.bottomAnchor, constant: 0),
+            centerGuide.topAnchor.constraint(equalTo: carouselView.bottomAnchor),
+            centerGuide.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor),
+            
+            stack.centerYAnchor.constraint(equalTo: centerGuide.centerYAnchor),
             stack.leadingAnchor.constraint(equalTo: leadingAnchor),
             stack.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             addToCartButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 6),
             addToCartButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
             addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            addToCartButton.heightAnchor.constraint(equalToConstant: 30)
+            addToCartButton.heightAnchor.constraint(equalToConstant: 30),
+            addToCartButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -6)
         ])
     }
 }

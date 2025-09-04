@@ -11,8 +11,8 @@ class CatalogueDataManager {
     
     static let shared = CatalogueDataManager()
     
-    var catalogue: [Sneaker] = []
-    var favorites: [Sneaker] = []
+    private var catalogue: [Sneaker] = []
+    private var favorites: [Sneaker] = []
     
     private init() {}
     
@@ -24,11 +24,12 @@ class CatalogueDataManager {
         guard let index = favorites.firstIndex(of: sneaker) else { return }
         favorites.remove(at: index)
         
-        guard var item = catalogue.first(where: { item in
-            item.brand == sneaker.brand
-        }) else { return }
+//        guard var item = catalogue.first(where: { item in
+//            item.brand == sneaker.brand
+//        }) else { return }
+//        
+//        item.isFavorite = false
         
-        item.isFavorite = false
     }
     
     func getCatalogueCount() -> Int {
@@ -41,5 +42,17 @@ class CatalogueDataManager {
     
     func getFavoriteSneaker(at indexPath: IndexPath) -> Sneaker {
         favorites[indexPath.item]
+    }
+    
+    func isFavorite(sneaker: Sneaker) -> Bool {
+        favorites.contains { $0.hashValue == sneaker.hashValue }
+    }
+    
+    func setCatalogue(_ catalogue: [Sneaker]) {
+        self.catalogue = catalogue
+    }
+    
+    func getCatalogue(at indexPath: IndexPath) -> Sneaker {
+        catalogue[indexPath.row]
     }
 }

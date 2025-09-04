@@ -36,8 +36,8 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [navCatalogueVC, navfavoritesVC, cartVC]
         
-        let catalogue = Sneaker.getCatalogue()
-        CatalogueDataManager.shared.catalogue = catalogue
+        let catalogue = Sneaker.getCatalogue() // TODO: fix
+        CatalogueDataManager.shared.setCatalogue(catalogue)
         
         print("cart VC from TabBar address: \(Unmanaged.passUnretained(cartVC).toOpaque())")
     }

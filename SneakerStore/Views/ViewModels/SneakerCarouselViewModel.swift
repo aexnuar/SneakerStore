@@ -9,9 +9,13 @@ import UIKit
 
 class SneakerCarouselViewModel: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    private var images: [String]
+    private var images: [String] = []
     
-    init(images: [String]) {
+//    init(images: [String]) {
+//        self.images = images
+//    }
+    
+    func setImages(images: [String]) {
         self.images = images
     }
     

@@ -95,7 +95,7 @@ extension CartViewController {
         mainView.totalPriceLabel.text = "\(formatPrice(totalPrice)) ₽"
     }
     
-    private func formatItem(for count: Int) -> String {
+    private func formatItem(for count: Int) -> String { // TODO: форматтеры в папке utils сделать класс (прайсФорматтер) со статическими методами 
         let remainder10 = count % 10
         let remainder100 = count % 100
         

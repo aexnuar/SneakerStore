@@ -27,7 +27,7 @@ class SneakerDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainView.carouselView.set(dataSource: self)
+        //mainView.carouselView.set(dataSource: self)
         
         setupNavigationBar()
         setupViews()
@@ -94,11 +94,13 @@ extension SneakerDetailViewController {
                 }
             }
             
-            if cartCount >= 2 { // TODO: make 10 later
-                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 24).isActive = true
-            } else {
-                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 18).isActive = true
-            }
+//            if cartCount >= 2 { // TODO: make 10 later
+//                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 24).isActive = true
+//            } else {
+//                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 18).isActive = true
+//            }
+            
+            mainView.changeConstraints(count: cartCount)
             
             mainView.badgeLabel.isHidden = false
             mainView.badgeLabel.text = String(cartCount)
