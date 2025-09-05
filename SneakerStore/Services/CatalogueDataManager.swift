@@ -11,8 +11,8 @@ class CatalogueDataManager {
     
     static let shared = CatalogueDataManager()
     
-    var catalogue: [Sneaker] = []
-    var favorites: [Sneaker] = []
+    private var catalogue: [Sneaker] = []
+    private var favorites: [Sneaker] = []
     
     private init() {}
     
@@ -39,7 +39,15 @@ class CatalogueDataManager {
         favorites.count
     }
     
+    func getSneaker(at indexPath: IndexPath) -> Sneaker {
+        catalogue[indexPath.item]
+    }
+    
     func getFavoriteSneaker(at indexPath: IndexPath) -> Sneaker {
         favorites[indexPath.item]
+    }
+    
+    func getCatalogue(catalogue: [Sneaker]) {
+        self.catalogue = catalogue
     }
 }

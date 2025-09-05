@@ -55,7 +55,7 @@ extension CatalogueViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CatalogueCell.identifier, for: indexPath) as? CatalogueCell else { return UICollectionViewCell() }
         
-        let sneaker = CatalogueDataManager.shared.catalogue[indexPath.item]
+        let sneaker = CatalogueDataManager.shared.getSneaker(at: indexPath)
         cell.configure(with: sneaker)
         cell.delegate = self
         return cell
