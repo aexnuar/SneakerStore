@@ -91,30 +91,8 @@ extension CartViewController {
         let cartCount = CartDataManager.shared.getCartCount()
         let totalPrice = CartDataManager.shared.getTotalPrice()
         
-        mainView.itemsLabel.text = "\(cartCount) \(formatItem(for: cartCount)) — "
-        mainView.totalPriceLabel.text = "\(formatPrice(totalPrice)) ₽"
-    }
-    
-    private func formatItem(for count: Int) -> String {
-        let remainder10 = count % 10
-        let remainder100 = count % 100
-        
-        if remainder10 == 1 && remainder100 != 11 {
-            return "товар"
-        } else if (2...4).contains(remainder10) && !(12...14).contains(remainder100) {
-            return "товара"
-        } else {
-            return "товаров"
-        }
-    }
-    
-    private func formatPrice(_ price: Int) -> String {
-        let formatter = NumberFormatter()
-        
-        formatter.numberStyle = .decimal
-        formatter.groupingSeparator = " "
-        
-        return formatter.string(from: NSNumber(value: price)) ?? String(price)
+        mainView.itemsLabel.text = "\(cartCount) \(DataFormatter.shared.formatItemWord(for: cartCount)) — "
+        mainView.totalPriceLabel.text = "\(DataFormatter.shared.formatPrice(totalPrice)) ₽"
     }
     
     private func setupNavigationBar() {

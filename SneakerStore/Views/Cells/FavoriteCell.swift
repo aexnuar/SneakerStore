@@ -54,6 +54,8 @@ class FavoriteCell: UICollectionViewCell {
     }
     
     private func setupViews() {
+        backgroundColor = .brown
+        
         addToCartButton.titleLabel?.font = .systemFont(ofSize: 12)
         addToCartButton.layer.cornerRadius = 6
         

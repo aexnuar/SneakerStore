@@ -26,7 +26,7 @@ class SneakerDetailView: UIView {
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = .brown // TODO: change to white
+        backgroundColor = .white // TODO: change to white
         
         setupCartButton()
         setupSubviews(carouselView, brandLabel, sneakerLabel, priceLabel)

@@ -36,6 +36,7 @@
 		0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */; };
 		0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */; };
 		0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */; };
+		0BED4D142E6B365A006E6B31 /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED4D132E6B365A006E6B31 /* DataFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselViewModel.swift; sourceTree = "<group>"; };
 		0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselView.swift; sourceTree = "<group>"; };
 		0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerViewModel.swift; sourceTree = "<group>"; };
+		0BED4D132E6B365A006E6B31 /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				0B168B2E2DBA840F00E27781 /* Models */,
 				0B168B182DBA83F600E27781 /* Views */,
 				0B168B2D2DBA83F900E27781 /* ViewControllers */,
+				0BED4D122E6B3646006E6B31 /* Utlities */,
 				0B168B2F2DBA842000E27781 /* Services */,
 				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
 				0B168B1B2DBA83F600E27781 /* Info.plist */,
@@ -198,6 +201,14 @@
 				0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */,
 			);
 			path = CellViews;
+			sourceTree = "<group>";
+		};
+		0BED4D122E6B3646006E6B31 /* Utlities */ = {
+			isa = PBXGroup;
+			children = (
+				0BED4D132E6B365A006E6B31 /* DataFormatter.swift */,
+			);
+			path = Utlities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 				0B168B532DBFE20200E27781 /* CartView.swift in Sources */,
 				0B168B512DBFDCE400E27781 /* CartCell.swift in Sources */,
 				0B168B372DBA8DD200E27781 /* CatalogueViewController.swift in Sources */,
+				0BED4D142E6B365A006E6B31 /* DataFormatter.swift in Sources */,
 				0B168B412DBA9DFF00E27781 /* CatalogueView.swift in Sources */,
 				0B168B4D2DBE8A4400E27781 /* SneakerDetailView.swift in Sources */,
 				0B168B292DBA83F600E27781 /* AppDelegate.swift in Sources */,

@@ -61,20 +61,7 @@ extension FavoritesViewController {
     private func configureItemsTitle() {
         let favoritesCount = CatalogueDataManager.shared.getFavoritesCount()
         
-        mainView.itemsLabel.text = "\(favoritesCount) \(formatItem(for: favoritesCount))"
-    }
-    
-    private func formatItem(for count: Int) -> String {
-        let remainder10 = count % 10
-        let remainder100 = count % 100
-        
-        if remainder10 == 1 && remainder100 != 11 {
-            return "товар"
-        } else if (2...4).contains(remainder10) && !(12...14).contains(remainder100) {
-            return "товара"
-        } else {
-            return "товаров"
-        }
+        mainView.itemsLabel.text = "\(favoritesCount) \(DataFormatter.shared.formatItemWord(for: favoritesCount))"
     }
     
     private func setupNavigationBar() {
