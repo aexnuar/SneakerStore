@@ -7,10 +7,14 @@
 
 import UIKit
 
+protocol CatalogueCellDelegate: AnyObject {
+    func showDetailPage(with sneaker: Sneaker)
+}
+
 class CatalogueCell: UICollectionViewCell {
     
     static let identifier = "CatalogueCell"
-    weak var delegate: CatalogueViewController?
+    weak var delegate: CatalogueCellDelegate?/*CatalogueViewController?*/
     var sneaker: Sneaker?
     
     let favoriteButton = UIButton()

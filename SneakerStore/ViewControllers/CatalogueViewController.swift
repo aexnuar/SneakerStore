@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CatalogueViewController: UIViewController {
+class CatalogueViewController: UIViewController, CatalogueCellDelegate {
     
     // MARK: - Properties
     private let screen = UIScreen.main.bounds

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FavoriteCellDelegateToDetailPage: AnyObject {
+    func showDetailPage(with sneaker: Sneaker)
+}
+
 protocol FavoriteCellDelegate: AnyObject {
     func reloadFavorites()
 }
@@ -18,6 +22,7 @@ class FavoriteCell: UICollectionViewCell {
     var sneaker: Sneaker?
     
     weak var delegate: FavoriteCellDelegate?
+    weak var detailDelegate: FavoriteCellDelegateToDetailPage?
     
     private let carouselView = SneakerCarouselView()
     private var sneakerCarouselVM: SneakerCarouselViewModel?
@@ -34,6 +39,7 @@ class FavoriteCell: UICollectionViewCell {
         setupViews()
         setupActions()
         setupConstraints()
+        setupTapGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -130,5 +136,18 @@ extension FavoriteCell {
         sneaker.isFavorite.toggle()
         
         delegate?.reloadFavorites()
+    }
+}
+
+// MARK: - UITapGestureRecognizer
+extension FavoriteCell {
+    private func setupTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(carouselTapped))
+        addGestureRecognizer(tap)
+    }
+    
+    @objc private func carouselTapped() {
+        guard let sneaker = sneaker else { return }
+        detailDelegate?.showDetailPage(with: sneaker)
     }
 }
