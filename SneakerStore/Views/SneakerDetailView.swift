@@ -44,11 +44,14 @@ class SneakerDetailView: UIView {
     }
     
     private func setupCartButton() {
-        navCartButton.setImage(UIImage(systemName: "cart"), for: .normal)
+        let largeIcon = UIImage(systemName: "cart", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22, weight: .regular))
+        
+        navCartButton.setImage(largeIcon, for: .normal)
+        navCartButton.tintColor = .label
         
         badgeLabel.font = .systemFont(ofSize: 13)
         badgeLabel.textColor = .white
-        badgeLabel.backgroundColor = .systemRed
+        badgeLabel.backgroundColor = .label
         badgeLabel.textAlignment = .center
         badgeLabel.layer.cornerRadius = 9
         badgeLabel.layer.masksToBounds = true
@@ -58,10 +61,30 @@ class SneakerDetailView: UIView {
         
         NSLayoutConstraint.activate([
             badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
-            badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 6),
+            badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
             badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
             badgeLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
+    }
+    
+    func updateConstraintsForCartBadge(count: Int) {
+        badgeLabel.removeConstraints(badgeLabel.constraints)
+
+        if count >= 2 { // TODO: make 10 later
+            NSLayoutConstraint.activate([
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+                badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
+                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+                badgeLabel.heightAnchor.constraint(equalToConstant: 18)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+                badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
+                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
+                badgeLabel.heightAnchor.constraint(equalToConstant: 18)
+            ])
+        }
     }
     
     private func setupSubviews(_ subviews: UIView...) {

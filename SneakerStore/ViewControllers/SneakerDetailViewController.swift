@@ -88,17 +88,7 @@ extension SneakerDetailViewController {
         if cartCount > 0 {
             tabBarController?.viewControllers?[2].tabBarItem.badgeValue = String(cartCount)
             
-            mainView.badgeLabel.constraints.forEach { constraint in
-                if constraint.firstAttribute == .width {
-                    mainView.badgeLabel.removeConstraint(constraint)
-                }
-            }
-            
-            if cartCount >= 2 { // TODO: make 10 later
-                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 24).isActive = true
-            } else {
-                mainView.badgeLabel.widthAnchor.constraint(equalToConstant: 18).isActive = true
-            }
+            mainView.updateConstraintsForCartBadge(count: cartCount)
             
             mainView.badgeLabel.isHidden = false
             mainView.badgeLabel.text = String(cartCount)

@@ -27,7 +27,7 @@ class FavoriteCell: UICollectionViewCell {
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
     private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
     private let priceLabel = UILabel(isBold: false, fontSize: 12, fontColor: #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1))
-    private let addToCartButton = UIButton(title: "В корзину")
+    //private let addToCartButton = UIButton(title: "В корзину")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,8 +56,8 @@ class FavoriteCell: UICollectionViewCell {
     private func setupViews() {
         backgroundColor = .brown
         
-        addToCartButton.titleLabel?.font = .systemFont(ofSize: 12)
-        addToCartButton.layer.cornerRadius = 6
+        //addToCartButton.titleLabel?.font = .systemFont(ofSize: 12)
+        //addToCartButton.layer.cornerRadius = 6
         
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
         let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
@@ -78,7 +78,7 @@ class FavoriteCell: UICollectionViewCell {
     private func setupConstraints() {
         let stack = UIStackView(views: [brandLabel, sneakerLabel, priceLabel], alignment: .center, axis: .vertical, spacing: 2)
         
-        [carouselView, stack, addToCartButton].forEach {
+        [carouselView, stack/*, addToCartButton*/].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             contentView.addSubview($0)
         }
@@ -99,17 +99,18 @@ class FavoriteCell: UICollectionViewCell {
             removeCellButton.trailingAnchor.constraint(equalTo: carouselView.trailingAnchor, constant: -12),
             
             centerGuide.topAnchor.constraint(equalTo: carouselView.bottomAnchor),
-            centerGuide.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor),
+            centerGuide.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             
             stack.centerYAnchor.constraint(equalTo: centerGuide.centerYAnchor),
             stack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stack.trailingAnchor.constraint(equalTo: trailingAnchor)
             
-            addToCartButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 6),
-            addToCartButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
-            addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            addToCartButton.heightAnchor.constraint(equalToConstant: 30),
-            addToCartButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -6)
+            
+//            addToCartButton.topAnchor.constraint(equalTo: stack.bottomAnchor, constant: 6),
+//            addToCartButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+//            addToCartButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
+//            addToCartButton.heightAnchor.constraint(equalToConstant: 30),
+//            addToCartButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -6)
         ])
     }
 }
