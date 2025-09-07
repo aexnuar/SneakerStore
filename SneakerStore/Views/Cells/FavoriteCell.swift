@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol FavoriteCellDelegateToDetailPage: AnyObject {
+protocol FavoriteCellDetailDelegate: AnyObject {
     func showDetailPage(with sneaker: Sneaker)
 }
 
-protocol FavoriteCellDelegate: AnyObject {
-    func reloadFavorites()
+protocol FavoriteCellReloadDelegate: AnyObject {
+    func favoriteCellDidRequestReload()
 }
 
 class FavoriteCell: UICollectionViewCell {
@@ -21,8 +21,8 @@ class FavoriteCell: UICollectionViewCell {
     
     var sneaker: Sneaker?
     
-    weak var delegate: FavoriteCellDelegate?
-    weak var detailDelegate: FavoriteCellDelegateToDetailPage?
+    weak var favoriteDelegate: FavoriteCellReloadDelegate?
+    weak var detailDelegate: FavoriteCellDetailDelegate?
     
     private let carouselView = SneakerCarouselView()
     private var sneakerCarouselVM: SneakerCarouselViewModel?
@@ -135,7 +135,7 @@ extension FavoriteCell {
         
         sneaker.isFavorite.toggle()
         
-        delegate?.reloadFavorites()
+        favoriteDelegate?.favoriteCellDidRequestReload()
     }
 }
 

@@ -43,21 +43,12 @@ extension FavoritesViewController: UICollectionViewDataSource {
     
         cell.configure(with: sneaker)
         
-        cell.delegate = self
+        cell.favoriteDelegate = self
         cell.detailDelegate = self
         
         return cell
     }
 }
-
-//extension FavoritesViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let detailVC = SneakerDetailViewController(sneaker: CatalogueDataManager.shared.getSneaker(at: indexPath))
-//        detailVC.hidesBottomBarWhenPushed = true
-//        
-//        navigationController?.pushViewController(detailVC, animated: true)
-//    }
-//}
 
 // MARK: - UICollectionViewDelegateFlowLayout
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
@@ -104,15 +95,15 @@ extension FavoritesViewController {
     }
 }
 
-extension FavoritesViewController: FavoriteCellDelegate {
-    func reloadFavorites() {
+extension FavoritesViewController: FavoriteCellReloadDelegate {
+    func favoriteCellDidRequestReload() {
+        mainView.collectionView.reloadData()
         configureItemsTitle()
-        mainView.collectionView.reloadData() // TODO: реализовать обовление конкретной ячейки
     }
 }
 
 // MARK: - FavoriteCellDelegateToDetailPage
-extension FavoritesViewController: FavoriteCellDelegateToDetailPage {
+extension FavoritesViewController: FavoriteCellDetailDelegate {
     func showDetailPage(with sneaker: Sneaker) {
         let sneakerDetailVC = SneakerDetailViewController(sneaker: sneaker)
         sneakerDetailVC.hidesBottomBarWhenPushed = true
