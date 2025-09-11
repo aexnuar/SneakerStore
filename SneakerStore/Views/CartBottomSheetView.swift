@@ -22,7 +22,7 @@ class CartBottomSheetView: UIView {
         backgroundColor = .white
         
         setupViews()
-        setupConstreints()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -56,7 +56,7 @@ class CartBottomSheetView: UIView {
         showCartButton.layer.borderColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
     }
     
-    private func setupConstreints() {
+    private func setupConstraints() {
         let buttonsStack = UIStackView(views: [continueShoppingButton, showCartButton], axis: .vertical, spacing: 10)
         let labelsStack = UIStackView(views: [sneakerLabel, priceLabel], alignment: .center, axis: .vertical, spacing: 4)
         

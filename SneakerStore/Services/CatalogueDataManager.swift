@@ -13,22 +13,30 @@ class CatalogueDataManager {
     
     private var catalogue: [Sneaker] = []
     private var favorites: [Sneaker] = []
-    
     private init() {}
     
     func addToFavorites(sneaker: Sneaker) {
+        guard !favorites.contains(sneaker) else { return }
         favorites.append(sneaker)
+        
+        if let catalogueIndex = catalogue.firstIndex(of: sneaker) {
+            catalogue[catalogueIndex].isFavorite = true
+        }
     }
     
     func removeFromFavorites(sneaker: Sneaker) {
         guard let index = favorites.firstIndex(of: sneaker) else { return }
         favorites.remove(at: index)
         
-        guard var item = catalogue.first(where: { item in
-            item.brand == sneaker.brand
-        }) else { return }
+        if let catalogueIndex = catalogue.firstIndex(of: sneaker) {
+            catalogue[catalogueIndex].isFavorite = false
+        }
         
-        item.isFavorite = false
+//        guard var item = catalogue.first(where: { item in
+//            item.brand == sneaker.brand
+//        }) else { return }
+//        
+//        item.isFavorite = false
     }
     
     func getCatalogueCount() -> Int {
@@ -50,4 +58,17 @@ class CatalogueDataManager {
     func getCatalogue(catalogue: [Sneaker]) {
         self.catalogue = catalogue
     }
+}
+
+extension CatalogueDataManager {
+    func updateSneaker(_ updatedSneaker: Sneaker) {
+        if let index = catalogue.firstIndex(where: { $0.brand == updatedSneaker.brand && $0.sneaker == updatedSneaker.sneaker }) {
+            catalogue[index] = updatedSneaker
+        }
+    }
+    
+    func indexOfSneaker(_ sneaker: Sneaker) -> Int? {
+        return catalogue.firstIndex(where: { $0.brand == sneaker.brand && $0.sneaker == sneaker.sneaker })
+    }
+    
 }

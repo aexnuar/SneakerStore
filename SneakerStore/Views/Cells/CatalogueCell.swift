@@ -114,10 +114,9 @@ extension CatalogueCell {
     @objc private func favoriteButtonTapped() {
         print("Favorite button tapped")
         guard var sneaker = sneaker else { return }
-        
         sneaker.isFavorite.toggle()
-        favoriteButton.setImage(UIImage(systemName: sneaker.isFavorite ? "heart.fill" : "heart"), for: .normal)
         
+        favoriteButton.setImage(UIImage(systemName: sneaker.isFavorite ? "heart.fill" : "heart"), for: .normal)
         CatalogueDataManager.shared.addToFavorites(sneaker: sneaker)
     }
 }

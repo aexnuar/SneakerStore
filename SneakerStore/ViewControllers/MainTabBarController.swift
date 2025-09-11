@@ -28,6 +28,9 @@ class MainTabBarController: UITabBarController {
         navCatalogueVC.tabBarItem = UITabBarItem(title: "Каталог", image: UIImage(systemName: "bag"), tag: 0)
         
         let favoritesVC = FavoritesViewController()
+        
+        favoritesVC.favoritesDelegate = catalogueVC // подписка на делегат!
+        
         let navfavoritesVC = UINavigationController(rootViewController: favoritesVC)
         favoritesVC.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(systemName: "heart"), tag: 1)
         

@@ -33,7 +33,7 @@ class CatalogueViewController: UIViewController, CatalogueCellDelegate {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-       /*mainView.collectionView.reloadData()*/ /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
+        /*mainView.collectionView.reloadData()*/ /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
     }
     
     // MARK: - Public methods
@@ -85,6 +85,23 @@ extension CatalogueViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
+}
+
+// MARK: - FavoritesUpdateDelegate
+extension CatalogueViewController: FavoritesUpdateDelegate {
+    func favoritesDidUpdate(for sneaker: Sneaker) {
+        // Обновляем модель данных в менеджере, если нужно
+        CatalogueDataManager.shared.updateSneaker(sneaker)
+        
+        // Получаем индекс обновленного товара в каталоге
+        if let index = CatalogueDataManager.shared.indexOfSneaker(sneaker) {
+            DispatchQueue.main.async {
+                self.mainView.collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+            }
+        }
+    }
+    
+    
 }
 
 

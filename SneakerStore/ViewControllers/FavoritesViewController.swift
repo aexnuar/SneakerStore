@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol FavoritesUpdateDelegate: AnyObject {
+    func favoritesDidUpdate(for sneaker: Sneaker)
+}
+
 class FavoritesViewController: UIViewController {
+    
+    weak var favoritesDelegate: FavoritesUpdateDelegate?
     
     private let screen = UIScreen.main.bounds
     private lazy var mainView = FavoriteView()
@@ -78,25 +84,31 @@ extension FavoritesViewController {
         
         navigationController?.navigationBar.standardAppearance = appearance
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "cart"),
-            style: .plain,
-            target: self,
-            action: #selector(showCart)
-        )
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(
+//            image: UIImage(systemName: "cart"),
+//            style: .plain,
+//            target: self,
+//            action: #selector(showCart)
+//        )
     }
     
-    @objc private func showCart() {
-        let cartVC = CartViewController()
-        let navCartVC = UINavigationController(rootViewController: cartVC)
-        navCartVC.modalPresentationStyle = .fullScreen
-        
-        present(navCartVC, animated: true)
-    }
+//    @objc private func showCart() {
+//        let cartVC = CartViewController()
+//        let navCartVC = UINavigationController(rootViewController: cartVC)
+//        navCartVC.modalPresentationStyle = .fullScreen
+//        
+//        present(navCartVC, animated: true)
+//    }
 }
 
+// MARK: - FavoriteCellReloadDelegate
 extension FavoritesViewController: FavoriteCellReloadDelegate {
-    func favoriteCellDidRequestReload() {
+    func favoriteCellDidRequestReload(_ cell: FavoriteCell) {
+        guard let indexPath = mainView.collectionView.indexPath(for: cell) else { return }
+        let sneaker = CatalogueDataManager.shared.getFavoriteSneaker(at: indexPath)
+        
+        favoritesDelegate?.favoritesDidUpdate(for: sneaker)
+        
         mainView.collectionView.reloadData()
         configureItemsTitle()
     }

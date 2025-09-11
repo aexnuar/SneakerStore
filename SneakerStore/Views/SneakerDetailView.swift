@@ -70,7 +70,7 @@ class SneakerDetailView: UIView {
     func updateConstraintsForCartBadge(count: Int) {
         badgeLabel.removeConstraints(badgeLabel.constraints)
 
-        if count >= 2 { // TODO: make 10 later
+        if count >= 10 {
             NSLayoutConstraint.activate([
                 badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
                 badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),

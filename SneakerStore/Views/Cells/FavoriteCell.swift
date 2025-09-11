@@ -12,7 +12,7 @@ protocol FavoriteCellDetailDelegate: AnyObject {
 }
 
 protocol FavoriteCellReloadDelegate: AnyObject {
-    func favoriteCellDidRequestReload()
+    func favoriteCellDidRequestReload(_ cell: FavoriteCell)
 }
 
 class FavoriteCell: UICollectionViewCell {
@@ -131,11 +131,11 @@ extension FavoriteCell {
         guard var sneaker = sneaker else { return }
         print("Кнопка удаления нажата для: \(sneaker)")
         
+        favoriteDelegate?.favoriteCellDidRequestReload(self)
+        
         CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker)
+        //self.sneaker?.isFavorite = false
         
-        sneaker.isFavorite.toggle()
-        
-        favoriteDelegate?.favoriteCellDidRequestReload()
     }
 }
 
