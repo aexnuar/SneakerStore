@@ -13,6 +13,7 @@ class CatalogueDataManager {
     
     private var catalogue: [Sneaker] = []
     private var favorites: [Sneaker] = []
+    
     private init() {}
     
     func addToFavorites(sneaker: Sneaker) {
@@ -68,7 +69,6 @@ extension CatalogueDataManager {
     }
     
     func indexOfSneaker(_ sneaker: Sneaker) -> Int? {
-        return catalogue.firstIndex(where: { $0.brand == sneaker.brand && $0.sneaker == sneaker.sneaker })
+        catalogue.firstIndex(where: { $0.brand == sneaker.brand && $0.sneaker == sneaker.sneaker })
     }
-    
 }

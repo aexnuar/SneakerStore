@@ -112,7 +112,7 @@ extension CatalogueCell {
     }
     
     @objc private func favoriteButtonTapped() {
-        print("Favorite button tapped")
+        print("Favorite button tapped: sneaker from \(sneaker?.brand ?? "") added to favorites")
         guard var sneaker = sneaker else { return }
         sneaker.isFavorite.toggle()
         

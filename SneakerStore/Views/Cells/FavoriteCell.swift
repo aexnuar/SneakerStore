@@ -11,8 +11,8 @@ protocol FavoriteCellDetailDelegate: AnyObject {
     func showDetailPage(with sneaker: Sneaker)
 }
 
-protocol FavoriteCellReloadDelegate: AnyObject {
-    func favoriteCellDidRequestReload(_ cell: FavoriteCell)
+protocol FavoriteCellDelegate: AnyObject {
+    func favoriteCellDidRequestUpdate(_ cell: FavoriteCell)
 }
 
 class FavoriteCell: UICollectionViewCell {
@@ -21,7 +21,7 @@ class FavoriteCell: UICollectionViewCell {
     
     var sneaker: Sneaker?
     
-    weak var favoriteDelegate: FavoriteCellReloadDelegate?
+    weak var favoriteDelegate: FavoriteCellDelegate?
     weak var detailDelegate: FavoriteCellDetailDelegate?
     
     private let carouselView = SneakerCarouselView()
@@ -128,14 +128,10 @@ extension FavoriteCell {
     }
     
     @objc private func removeCellButtonTapped() {
-        guard var sneaker = sneaker else { return }
-        print("Кнопка удаления нажата для: \(sneaker)")
+        guard let sneaker = sneaker else { return }
+        print("Remove button tapped: sneaker from \(sneaker.brand) deleted from favorites")
         
-        favoriteDelegate?.favoriteCellDidRequestReload(self)
-        
-        CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker)
-        //self.sneaker?.isFavorite = false
-        
+        favoriteDelegate?.favoriteCellDidRequestUpdate(self)
     }
 }
 

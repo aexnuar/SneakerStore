@@ -102,13 +102,14 @@ extension FavoritesViewController {
 }
 
 // MARK: - FavoriteCellReloadDelegate
-extension FavoritesViewController: FavoriteCellReloadDelegate {
-    func favoriteCellDidRequestReload(_ cell: FavoriteCell) {
-        guard let indexPath = mainView.collectionView.indexPath(for: cell) else { return }
-        let sneaker = CatalogueDataManager.shared.getFavoriteSneaker(at: indexPath)
+extension FavoritesViewController: FavoriteCellDelegate {
+    func favoriteCellDidRequestUpdate(_ cell: FavoriteCell) {
+        guard let index = mainView.collectionView.indexPath(for: cell) else { return }
+        let sneaker = CatalogueDataManager.shared.getFavoriteSneaker(at: index)
         
         favoritesDelegate?.favoritesDidUpdate(for: sneaker)
         
+        CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker) // удаление ячейки только после делегирования ее каталогу
         mainView.collectionView.reloadData()
         configureItemsTitle()
     }
