@@ -48,6 +48,7 @@ class SneakerDetailView: UIView {
         
         navCartButton.setImage(largeIcon, for: .normal)
         navCartButton.tintColor = .label
+        navCartButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 5)
         
         badgeLabel.font = .systemFont(ofSize: 13)
         badgeLabel.textColor = .white
@@ -60,9 +61,9 @@ class SneakerDetailView: UIView {
         navCartButton.addSubview(badgeLabel)
         
         NSLayoutConstraint.activate([
-            badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+            badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -4),
             badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
-            badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
+            badgeLabel.widthAnchor.constraint(equalToConstant: 18),
             badgeLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
@@ -72,16 +73,16 @@ class SneakerDetailView: UIView {
 
         if count >= 10 {
             NSLayoutConstraint.activate([
-                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -4),
                 badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
-                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 20),
+                badgeLabel.widthAnchor.constraint(equalToConstant: 23),
                 badgeLabel.heightAnchor.constraint(equalToConstant: 18)
             ])
         } else {
             NSLayoutConstraint.activate([
-                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -6),
+                badgeLabel.topAnchor.constraint(equalTo: navCartButton.topAnchor, constant: -4),
                 badgeLabel.trailingAnchor.constraint(equalTo: navCartButton.trailingAnchor, constant: 8),
-                badgeLabel.widthAnchor.constraint(greaterThanOrEqualToConstant: 18),
+                badgeLabel.widthAnchor.constraint(equalToConstant: 18),
                 badgeLabel.heightAnchor.constraint(equalToConstant: 18)
             ])
         }
