@@ -5,4 +5,6 @@
 //  Created by aex on 23.09.2025.
 //
 
-import Foundation
+enum Link: String {
+    case catalogue = "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/refs/heads/main/catalogue.json"
+}

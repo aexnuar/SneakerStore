@@ -96,27 +96,10 @@ extension CartViewController {
     }
     
     private func setupNavigationBar() {
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)
-        let image = UIImage(systemName: "xmark", withConfiguration: imageConfig)
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            image: image,
-            style: .plain,
-            target: self,
-            action: #selector(closeButtonTapped)
-        )
-        
-        navigationItem.leftBarButtonItem?.tintColor = .black
-        
-        let appearance = UINavigationBarAppearance() /// скрываем серый в нав баре при скролле тейбл вью снизу вверх
-        appearance.configureWithTransparentBackground()
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.setupNavBarWithCloseButton(target: self, action: #selector(closeButtonTapped))
     }
     
     @objc private func closeButtonTapped() {
         self.dismiss(animated: true)
-        //navigationController?.popViewController(animated: true)
     }
 }

@@ -68,8 +68,8 @@ class CatalogueCell: UICollectionViewCell {
         brandLabel.minimumScaleFactor = 0.7
         
         clipsToBounds = true
-        layer.borderWidth = 1.2
-        layer.borderColor = UIColor.lightGray.withAlphaComponent(0.1).cgColor
+        //layer.borderWidth = 1.2
+        //layer.borderColor = UIColor.lightGray.withAlphaComponent(0.1).cgColor
         layer.cornerRadius = 12
     }
     

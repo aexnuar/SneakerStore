@@ -104,13 +104,13 @@ extension SneakerDetailViewController {
     }
     
     @objc internal func showCart() { // TODO: why internal?
-        let cartVC = CartViewController()
+        let cartCount = CartDataManager.shared.getCartCount()
+        
+        let cartVC = cartCount > 0 ? CartViewController() : EmptyCartViewController()
         let navigationVC = UINavigationController(rootViewController: cartVC)
         navigationVC.modalPresentationStyle = .fullScreen
         
         present(navigationVC, animated: true)
-        
-        //navigationController?.pushViewController(cartVC, animated: true)
     }
     
     @objc private func configureAddToCartButton() {

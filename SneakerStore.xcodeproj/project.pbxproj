@@ -35,7 +35,14 @@
 		0B1F03AA2DD25DB00050EC53 /* CarouselImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */; };
 		0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */; };
 		0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */; };
+		0B2916A72E82A08B00E487F7 /* catalogue.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B2916A62E82A08B00E487F7 /* catalogue.json */; };
+		0B2916A92E82CFAE00E487F7 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2916A82E82CFAE00E487F7 /* URLManager.swift */; };
+		0B2916AB2E82CFC500E487F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */; };
 		0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */; };
+		0BD30C042E75928F00A99695 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C032E75928F00A99695 /* EmptyCartView.swift */; };
+		0BD30C062E75B2ED00A99695 /* EmptyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C052E75B2ED00A99695 /* EmptyCartViewController.swift */; };
+		0BD30C0D2E75BD8D00A99695 /* UINavigationController+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C0C2E75BD8D00A99695 /* UINavigationController+CloseButton.swift */; };
+		0BD30C0F2E7712F100A99695 /* EmptyCartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C0E2E7712F100A99695 /* EmptyCartCell.swift */; };
 		0BED4D142E6B365A006E6B31 /* DataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BED4D132E6B365A006E6B31 /* DataFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,7 +77,14 @@
 		0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselImageCell.swift; sourceTree = "<group>"; };
 		0B1F03AC2DDF87250050EC53 /* SneakerCarouselViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselViewModel.swift; sourceTree = "<group>"; };
 		0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerCarouselView.swift; sourceTree = "<group>"; };
+		0B2916A62E82A08B00E487F7 /* catalogue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = catalogue.json; sourceTree = "<group>"; };
+		0B2916A82E82CFAE00E487F7 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerViewModel.swift; sourceTree = "<group>"; };
+		0BD30C032E75928F00A99695 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
+		0BD30C052E75B2ED00A99695 /* EmptyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartViewController.swift; sourceTree = "<group>"; };
+		0BD30C0C2E75BD8D00A99695 /* UINavigationController+CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+CloseButton.swift"; sourceTree = "<group>"; };
+		0BD30C0E2E7712F100A99695 /* EmptyCartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartCell.swift; sourceTree = "<group>"; };
 		0BED4D132E6B365A006E6B31 /* DataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +123,7 @@
 				0B168B602DC91FC400E27781 /* FavoriteView.swift */,
 				0B168B562DC2381B00E27781 /* CartBottomSheetView.swift */,
 				0B168B522DBFE20200E27781 /* CartView.swift */,
+				0BD30C032E75928F00A99695 /* EmptyCartView.swift */,
 				0B1F03AE2DDF87860050EC53 /* CellViews */,
 				0B168B422DBBA70600E27781 /* Cells */,
 				0B1F03AB2DDF86E50050EC53 /* ViewModels */,
@@ -125,8 +140,10 @@
 				0B168B2E2DBA840F00E27781 /* Models */,
 				0B168B182DBA83F600E27781 /* Views */,
 				0B168B2D2DBA83F900E27781 /* ViewControllers */,
+				0BD30C0B2E75BD4B00A99695 /* Extensions */,
 				0BED4D122E6B3646006E6B31 /* Utlities */,
 				0B168B2F2DBA842000E27781 /* Services */,
+				0B2916A52E829F2F00E487F7 /* Resources */,
 				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
 				0B168B1B2DBA83F600E27781 /* Info.plist */,
 				0B168B1D2DBA83F600E27781 /* LaunchScreen.storyboard */,
@@ -144,6 +161,7 @@
 				0B168B3C2DBA8E5E00E27781 /* FavoritesViewController.swift */,
 				0B168B542DC2377D00E27781 /* CartBottomSheetViewController.swift */,
 				0B168B3A2DBA8E1D00E27781 /* CartViewController.swift */,
+				0BD30C052E75B2ED00A99695 /* EmptyCartViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -161,6 +179,8 @@
 			children = (
 				0B168B642DCA740400E27781 /* CatalogueDataManager.swift */,
 				0B168B5C2DC388AF00E27781 /* CartDataManager.swift */,
+				0B2916A82E82CFAE00E487F7 /* URLManager.swift */,
+				0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -172,6 +192,7 @@
 				0B168B622DC9246E00E27781 /* FavoriteCell.swift */,
 				0B168B502DBFDCE400E27781 /* CartCell.swift */,
 				0B1F03A92DD25DB00050EC53 /* CarouselImageCell.swift */,
+				0BD30C0E2E7712F100A99695 /* EmptyCartCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -201,6 +222,22 @@
 				0B1F03AF2DDF87B60050EC53 /* SneakerCarouselView.swift */,
 			);
 			path = CellViews;
+			sourceTree = "<group>";
+		};
+		0B2916A52E829F2F00E487F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0B2916A62E82A08B00E487F7 /* catalogue.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0BD30C0B2E75BD4B00A99695 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BD30C0C2E75BD8D00A99695 /* UINavigationController+CloseButton.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0BED4D122E6B3646006E6B31 /* Utlities */ = {
@@ -272,6 +309,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2916A72E82A08B00E487F7 /* catalogue.json in Resources */,
 				0B168B252DBA83F600E27781 /* Assets.xcassets in Resources */,
 				0B168B272DBA83F600E27781 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -287,12 +325,16 @@
 				0B168B472DBBB01300E27781 /* UILabelExtension.swift in Sources */,
 				0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */,
 				0B168B442DBBA75400E27781 /* CatalogueCell.swift in Sources */,
+				0BD30C0D2E75BD8D00A99695 /* UINavigationController+CloseButton.swift in Sources */,
 				0B168B392DBA8E0500E27781 /* SneakerDetailViewController.swift in Sources */,
 				0B168B5D2DC388AF00E27781 /* CartDataManager.swift in Sources */,
 				0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */,
+				0BD30C0F2E7712F100A99695 /* EmptyCartCell.swift in Sources */,
 				0B168B532DBFE20200E27781 /* CartView.swift in Sources */,
 				0B168B512DBFDCE400E27781 /* CartCell.swift in Sources */,
 				0B168B372DBA8DD200E27781 /* CatalogueViewController.swift in Sources */,
+				0BD30C042E75928F00A99695 /* EmptyCartView.swift in Sources */,
+				0BD30C062E75B2ED00A99695 /* EmptyCartViewController.swift in Sources */,
 				0BED4D142E6B365A006E6B31 /* DataFormatter.swift in Sources */,
 				0B168B412DBA9DFF00E27781 /* CatalogueView.swift in Sources */,
 				0B168B4D2DBE8A4400E27781 /* SneakerDetailView.swift in Sources */,
@@ -302,10 +344,12 @@
 				0B168B3D2DBA8E5E00E27781 /* FavoritesViewController.swift in Sources */,
 				0B168B552DC2377D00E27781 /* CartBottomSheetViewController.swift in Sources */,
 				0B168B4B2DBBF09700E27781 /* UIStackViewExtension.swift in Sources */,
+				0B2916AB2E82CFC500E487F7 /* NetworkManager.swift in Sources */,
 				0B168B652DCA740400E27781 /* CatalogueDataManager.swift in Sources */,
 				0B1F03AD2DDF87250050EC53 /* SneakerCarouselViewModel.swift in Sources */,
 				0B168B3B2DBA8E1D00E27781 /* CartViewController.swift in Sources */,
 				0B168B612DC91FC400E27781 /* FavoriteView.swift in Sources */,
+				0B2916A92E82CFAE00E487F7 /* URLManager.swift in Sources */,
 				0B168B4F2DBF99C500E27781 /* UIButtonExtension.swift in Sources */,
 				0B168B2B2DBA83F600E27781 /* SneakerStore.xcdatamodeld in Sources */,
 				0B168B572DC2381B00E27781 /* CartBottomSheetView.swift in Sources */,

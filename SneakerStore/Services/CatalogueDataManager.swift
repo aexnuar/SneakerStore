@@ -56,7 +56,7 @@ class CatalogueDataManager {
         favorites[indexPath.item]
     }
     
-    func getCatalogue(catalogue: [Sneaker]) {
+    func setCatalogue(catalogue: [Sneaker]) {
         self.catalogue = catalogue
     }
 }

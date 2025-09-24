@@ -17,13 +17,27 @@ class CarouselImageCell: UICollectionViewCell {
         super.init(frame: frame)
         setupImageView()
     }
+    
+    override func prepareForReuse() {
+            super.prepareForReuse()
+            imageView.image = nil // сбрасываем на переиспользование
+        }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with imageName: String) {
-        imageView.image = UIImage(named: imageName)
+//    func configure(with imageName: String) {
+//        imageView.image = UIImage(named: imageName)
+//    }
+    
+    func configure(with imageURL: String) {
+        //imageView.image = nil // сброс на момент загрузки
+        
+        NetworkManager.shared.fetchImage(from: imageURL) { data in
+            guard let image = UIImage(data: data) else { return }
+            self.imageView.image = image
+        }
     }
 
     private func setupImageView() {

@@ -1,0 +1,194 @@
+
+[
+    {
+        "id": "1",
+        "brand": "Acne Studios",
+        "sneaker": "Текстильные кеды",
+        "price": "39 950",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AcneStudios-6.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "2",
+        "brand": "Rick Owens",
+        "sneaker": "Кожаные кеды Hollywood Jumbolace",
+        "price": "114 000",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-6.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-7.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/RickOwens-8.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "3",
+        "brand": "Burberry",
+        "sneaker": "Кеды Bubble",
+        "price": "84 950",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-6.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Burberry-7.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "4",
+        "brand": "Balenciaga",
+        "sneaker": "Текстильные кеды Paris",
+        "price": "99 500",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/Balenciaga-6.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "5",
+        "brand": "Crime London",
+        "sneaker": "Комбинированные кеды Skate",
+        "price": "25 000",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-6.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/CrimeLondon-7.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "6",
+        "brand": "Dolce & Gabbana",
+        "sneaker": "Комбинированные кеды",
+        "price": "75 000",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/DolceAndGabbana-6.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "7",
+        "brand": "Mattia Capezzani",
+        "sneaker": "Текстильные кеды Mamba",
+        "price": "68 750",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-6.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/MattiaCapezzani-7.jpg"
+        ],
+        "isFavorite": false
+    },
+    {
+        "id": "8",
+        "brand": "Ann Demeulemeester",
+        "sneaker": "Замшевые кеды Nono",
+        "price": "93 600",
+        "sizesAvailable": [
+            { "type": "size40", "value": "40", "inStock": true },
+            { "type": "size41", "value": "41", "inStock": true },
+            { "type": "size42", "value": "42", "inStock": true },
+            { "type": "size43", "value": "43", "inStock": true },
+            { "type": "size44", "value": "44", "inStock": true },
+            { "type": "size45", "value": "45", "inStock": true }
+        ],
+        "sneakerImages": [
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-1.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-2.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-3.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-4.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-5.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-6.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-7.jpg",
+            "https://raw.githubusercontent.com/aexnuar/SneakerStoreData/main/images/AnnDemeulemeester-8.jpg"
+        ],
+        "isFavorite": false
+    }
+]
+

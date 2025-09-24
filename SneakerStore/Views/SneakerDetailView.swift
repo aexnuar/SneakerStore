@@ -48,7 +48,7 @@ class SneakerDetailView: UIView {
         
         navCartButton.setImage(largeIcon, for: .normal)
         navCartButton.tintColor = .label
-        navCartButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 5)
+        navCartButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         
         badgeLabel.font = .systemFont(ofSize: 13)
         badgeLabel.textColor = .white
