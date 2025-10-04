@@ -30,7 +30,14 @@ class EmptyCartCell: UICollectionViewCell {
         brandLabel.text = sneaker.brand
         sneakerLabel.text = sneaker.sneaker
         priceLabel.text = sneaker.price + " ₽"
-        sneakerImage.image = UIImage(named: sneaker.sneakerImages[0])
+        //sneakerImage.image = UIImage(named: sneaker.sneakerImages[0])
+        
+        guard let sneakerImage = sneaker.sneakerImages.first else { return }
+        
+        NetworkManager.shared.fetchImage(from: sneakerImage) { data in
+            guard let image = UIImage(data: data) else { return }
+            self.sneakerImage.image = image
+        }
     }
 }
 

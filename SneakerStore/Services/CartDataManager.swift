@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CartDataManager {
     
@@ -17,6 +18,11 @@ class CartDataManager {
     
     func addToCart(sneaker: Sneaker) {
         sneakers.append(sneaker)
+        
+//        if let tabBarController = UIApplication.shared.windows.first?.rootViewController as? MainTabBarController {
+//            tabBarController.updateCart()
+//        }
+
     }
     
     func removeFromCart(at indexPath: IndexPath) {

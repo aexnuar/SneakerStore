@@ -144,7 +144,6 @@
 				0BED4D122E6B3646006E6B31 /* Utlities */,
 				0B168B2F2DBA842000E27781 /* Services */,
 				0B2916A52E829F2F00E487F7 /* Resources */,
-				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
 				0B168B1B2DBA83F600E27781 /* Info.plist */,
 				0B168B1D2DBA83F600E27781 /* LaunchScreen.storyboard */,
 				0B168B212DBA83F600E27781 /* SneakerStore.xcdatamodeld */,
@@ -177,10 +176,10 @@
 		0B168B2F2DBA842000E27781 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0B168B642DCA740400E27781 /* CatalogueDataManager.swift */,
-				0B168B5C2DC388AF00E27781 /* CartDataManager.swift */,
 				0B2916A82E82CFAE00E487F7 /* URLManager.swift */,
 				0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */,
+				0B168B642DCA740400E27781 /* CatalogueDataManager.swift */,
+				0B168B5C2DC388AF00E27781 /* CartDataManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -228,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				0B2916A62E82A08B00E487F7 /* catalogue.json */,
+				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -386,8 +386,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,8 +414,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

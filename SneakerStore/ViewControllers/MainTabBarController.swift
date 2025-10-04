@@ -10,14 +10,32 @@ import UIKit
 class MainTabBarController: UITabBarController {
     
     private var catalogue: [Sneaker]?
+    
+    var cartCount = 0 {
+        didSet {
+            if (oldValue == 0 && cartCount > 0) || (oldValue > 0 && cartCount == 0) {
+                setupViewControllers()
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         fetchData(from: Link.catalogue.rawValue)
         
+        cartCount = CartDataManager.shared.getCartCount()
+        
         UITabBar.appearance().tintColor = .label
     }
+    
+    // Метод для обновления cartCount и табов при изменении корзины
+//        func updateCart() {
+//            let newCount = CartDataManager.shared.getCartCount()
+//            if newCount != cartCount {
+//                cartCount = newCount
+//            }
+//        }
 }
 
 // MARK: - Private methods
@@ -32,7 +50,6 @@ extension MainTabBarController {
         let navfavoritesVC = UINavigationController(rootViewController: favoritesVC)
         favoritesVC.tabBarItem = UITabBarItem(title: "Избранное", image: UIImage(systemName: "heart"), tag: 1)
         
-        let cartCount = CartDataManager.shared.getCartCount()
         let cartVC = cartCount > 0 ? CartViewController() : EmptyCartViewController()
         cartVC.tabBarItem = UITabBarItem(title: "Корзина", image: UIImage(systemName: "cart"), tag: 2)
         
@@ -42,16 +59,22 @@ extension MainTabBarController {
         print("MainTabBarController address: \(Unmanaged.passUnretained(self).toOpaque())")
     }
     
-    private func fetchData(from url: String) { // !
-        NetworkManager.shared.fetchCatalogue(from: url) { [weak self] catalogue in
-            self?.catalogue = catalogue
-            
-            CatalogueDataManager.shared.setCatalogue(catalogue: catalogue)
-            
-            DispatchQueue.main.async {
-                self?.setupViewControllers()
+    private func fetchData(from url: String) {
+        NetworkManager.shared.fetchCatalogue(from: url) { result in
+            switch result {
+            case .success(let catalogue):
+                self.catalogue = catalogue
+                CatalogueDataManager.shared.setCatalogue(catalogue: catalogue)
+                self.setupViewControllers()
+            case .failure(let error):
+                print(error)
             }
         }
+//        NetworkManager.shared.fetchCatalogue(from: url) { [weak self] catalogue in
+//            self?.catalogue = catalogue
+//            CatalogueDataManager.shared.setCatalogue(catalogue: catalogue)
+//            self?.setupViewControllers()
+//        }
     }
 }
 

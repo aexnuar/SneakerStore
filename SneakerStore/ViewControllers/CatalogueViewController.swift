@@ -33,7 +33,6 @@ class CatalogueViewController: UIViewController, CatalogueCellDelegate {
         super.viewWillAppear(animated)
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        /*mainView.collectionView.reloadData()*/ /// лучше делать в дидаппир, потому что тут еще неизвестны размеры фреймов и ячеек,
     }
     
     // MARK: - Public methods

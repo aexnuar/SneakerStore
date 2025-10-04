@@ -7,9 +7,9 @@
 
 import Foundation
 
-//enum NeworkError: Error {
-//    case invalidURL, noData, decodingError
-//}
+enum NetworkError: Error {
+    case invalidURL, noData, decodingError
+}
 
 class NetworkManager {
     
@@ -17,11 +17,15 @@ class NetworkManager {
     
     private init() {}
     
-    func fetchCatalogue(from url: String, with completion: @escaping([Sneaker]) -> Void) {
-        guard let url = URL(string: url) else { return }
+    func fetchCatalogue(from url: String, with completion: @escaping(Result<[Sneaker], NetworkError>) -> Void) {
+        guard let url = URL(string: url) else {
+            completion(.failure(.invalidURL))
+            return
+        }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
+                completion(.failure(.noData))
                 print(error?.localizedDescription ?? "No error description")
                 return
             }
@@ -29,17 +33,16 @@ class NetworkManager {
             do {
                 let catalogue = try JSONDecoder().decode([Sneaker].self, from: data)
                 DispatchQueue.main.async {
-                    completion(catalogue)
+                    completion(.success(catalogue))
                 }
-            } catch let error {
-                print(error)
+            } catch {
+                completion(.failure(.decodingError))
             }
         }.resume()
     }
     
     func fetchImage(from url: String?, with completion: @escaping(Data) -> Void) {
-        guard let stringUrl = url else { return }
-        guard let imageURL = URL(string: stringUrl) else { return }
+        guard let stringUrl = url, let imageURL = URL(string: stringUrl) else { return }
         
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: imageURL) else { return }
@@ -48,18 +51,26 @@ class NetworkManager {
             }
         }
     }
-    
 }
 
-//func fetchImage(from url: String?, with completion: @escaping(UIImage) -> Void) {
-//    guard let stringUrl = url else { return }
-//    guard let imageURL = URL(string: stringUrl) else { return }
-//    
-//    DispatchQueue.global().async {
-//        guard let data = try? Data(contentsOf: imageURL) else { return }
-//        DispatchQueue.main.async {
-//            completion(UIImage(data: data) ?? UIImage())
-//        }
+//    func fetchCatalogue(from url: String, with completion: @escaping([Sneaker]) -> Void) {
+//        guard let url = URL(string: url) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { data, _, error in
+//            guard let data = data else {
+//                print(error?.localizedDescription ?? "No error description")
+//                return
+//            }
+//
+//            do {
+//                let catalogue = try JSONDecoder().decode([Sneaker].self, from: data)
+//                DispatchQueue.main.async {
+//                    completion(catalogue)
+//                }
+//            } catch let error {
+//                print(error)
+//            }
+//        }.resume()
 //    }
-//}
+
 
