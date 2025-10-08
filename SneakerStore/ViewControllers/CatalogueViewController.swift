@@ -99,8 +99,6 @@ extension CatalogueViewController: FavoritesUpdateDelegate {
             }
         }
     }
-    
-    
 }
 
 

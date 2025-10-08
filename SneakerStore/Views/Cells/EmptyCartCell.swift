@@ -32,11 +32,15 @@ class EmptyCartCell: UICollectionViewCell {
         priceLabel.text = sneaker.price + " ₽"
         //sneakerImage.image = UIImage(named: sneaker.sneakerImages[0])
         
-        guard let sneakerImage = sneaker.sneakerImages.first else { return }
+        guard let sneakerImage = sneaker.sneakerImages.first, let url = URL(string: sneakerImage) else { return }
         
-        NetworkManager.shared.fetchImage(from: sneakerImage) { data in
-            guard let image = UIImage(data: data) else { return }
-            self.sneakerImage.image = image
+        ImageManager.shared.getImage(from: url) { result in
+            switch result {
+            case .success(let image):
+                self.sneakerImage.image = image
+            case .failure(let error):
+                print(error)
+            }
         }
     }
 }

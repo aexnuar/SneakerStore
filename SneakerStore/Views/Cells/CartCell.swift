@@ -15,7 +15,7 @@ class CartCell: UITableViewCell {
     
     private let containerView = UIView()
     
-    private let sneakerImage = UIImageView(image: UIImage())
+    private let sneakerImage = UIImageView()
     
     private let brandLabel = UILabel(isBold: true, fontSize: 22)
     private let sneakerLabel = UILabel(isBold: false, fontSize: 12)
@@ -35,14 +35,16 @@ class CartCell: UITableViewCell {
         brandLabel.text = sneaker.brand
         sneakerLabel.text = sneaker.sneaker
         priceLabel.text = sneaker.price + " ₽"
-        //sneakerImage.image = UIImage(named: sneaker.sneakerImages.first ?? "")
         
-        guard let sneakerImage = sneaker.sneakerImages.first else { return }
+        guard let sneakerImage = sneaker.sneakerImages.first, let url = URL(string: sneakerImage) else { return }
         
-        NetworkManager.shared.fetchImage(from: sneakerImage) { data in
-            guard let image = UIImage(data: data) else { return }
-            self.sneakerImage.image = image
-            
+        ImageManager.shared.getImage(from: url) { result in
+            switch result {
+            case .success(let image):
+                self.sneakerImage.image = image
+            case .failure(let error):
+                print(error)
+            }
         }
     }
     

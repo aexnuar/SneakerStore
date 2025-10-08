@@ -18,7 +18,7 @@ class ImageManager {
     func getImage(from url: URL, completion: @escaping(Result<UIImage, Error>) -> Void) {
         // Get image from cache
         if let cacheImage = ImageCache.shared.object(forKey: url.lastPathComponent as NSString) {
-            print("image from cache: ", url.lastPathComponent)
+            print("Image from cache: ", url.lastPathComponent)
             completion(.success(cacheImage))
             return
         }
