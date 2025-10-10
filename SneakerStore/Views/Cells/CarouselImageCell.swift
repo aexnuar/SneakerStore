@@ -13,6 +13,13 @@ class CarouselImageCell: UICollectionViewCell {
     
     private let imageView = UIImageView()
     
+    private var currentImageURL: URL? {
+        didSet {
+            imageView.image = nil
+            updateImage()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupImageView()
@@ -28,14 +35,18 @@ class CarouselImageCell: UICollectionViewCell {
     }
     
     func configure(with imageURL: String) {
-        imageView.image = nil // сброс на момент загрузки
-        
-        guard let url = URL(string: imageURL) else { return }
+        currentImageURL = URL(string: imageURL)
+    }
+    
+    private func updateImage() {
+        guard let url = currentImageURL else { return }
         
         ImageManager.shared.getImage(from: url) { result in
             switch result {
             case .success(let image):
-                self.imageView.image = image
+                if url == self.currentImageURL {
+                    self.imageView.image = image
+                }
             case .failure(let error):
                 print(error)
             }
