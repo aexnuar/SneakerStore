@@ -16,7 +16,7 @@ class CartDataManager {
 
     private init() {}
     
-    func addToCart(sneaker: Sneaker) {
+    func addToCart(_ sneaker: Sneaker) {
         sneakers.append(sneaker)
         
 //        if let tabBarController = UIApplication.shared.windows.first?.rootViewController as? MainTabBarController {
@@ -45,5 +45,9 @@ class CartDataManager {
         }
         
         return totalPrice
+    }
+    
+    func setSneakers(_ sneakers: [Sneaker]) {
+        self.sneakers = sneakers
     }
 }

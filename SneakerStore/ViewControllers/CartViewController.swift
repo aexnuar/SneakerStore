@@ -27,6 +27,7 @@ class CartViewController: UIViewController {
         mainView.tableView.delegate = self
         
         setupNavigationBar()
+        loadSneakers()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,11 +68,22 @@ extension CartViewController: UITableViewDelegate {
 
 // MARK: - Private methods
 extension CartViewController {
+    private func loadSneakers() {
+        let sneakers = StorageManager.shared.fetchData(filteredBy: .inCart)
+        
+        CartDataManager.shared.setSneakers(sneakers)
+        print("Cart count: \(CartDataManager.shared.getCartCount())")
+    }
+    
     @objc private func removeCellButtonTapped(_ sender: UIButton) {
         guard let cell = sender.superview?.superview as? CartCell,
               let indexPath = mainView.tableView.indexPath(for: cell) else { return }
         
+        let sneaker = CartDataManager.shared.getSneaker(at: indexPath)
         CartDataManager.shared.removeFromCart(at: indexPath)
+        //StorageManager.shared.updateSneakerFlags(for: sneaker, inCart: false)
+        StorageManager.shared.addOrUpdate(sneaker: sneaker, inCart: false)
+        
         mainView.tableView.reloadData()
         
         let cartCount = CartDataManager.shared.getCartCount()

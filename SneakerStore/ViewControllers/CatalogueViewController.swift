@@ -8,7 +8,6 @@
 import UIKit
 
 class CatalogueViewController: UIViewController, CatalogueCellDelegate {
-    
     // MARK: - Properties
     private let screen = UIScreen.main.bounds
     private lazy var mainView = CatalogueView()
@@ -36,6 +35,11 @@ class CatalogueViewController: UIViewController, CatalogueCellDelegate {
     }
     
     // MARK: - Public methods
+    func didTapFavorite(for sneaker: Sneaker) {
+        CatalogueDataManager.shared.addToFavorites(sneaker: sneaker)
+        StorageManager.shared.addOrUpdate(sneaker: sneaker, isFavorite: true)
+    }
+    
     func showDetailPage(with sneaker: Sneaker) {
         let sneakerDetailVC = SneakerDetailViewController(sneaker: sneaker)
         sneakerDetailVC.hidesBottomBarWhenPushed = true

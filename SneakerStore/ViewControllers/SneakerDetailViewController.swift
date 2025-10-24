@@ -114,7 +114,8 @@ extension SneakerDetailViewController {
     }
     
     @objc private func configureAddToCartButton() {
-        CartDataManager.shared.addToCart(sneaker: sneaker)
+        CartDataManager.shared.addToCart(sneaker)
+        StorageManager.shared.addOrUpdate(sneaker: sneaker, inCart: true)
         
         setupBadge()
         configureBottomSheet()

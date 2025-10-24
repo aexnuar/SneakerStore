@@ -9,12 +9,13 @@ import UIKit
 
 protocol CatalogueCellDelegate: AnyObject {
     func showDetailPage(with sneaker: Sneaker)
+    func didTapFavorite(for sneaker: Sneaker)
 }
 
 class CatalogueCell: UICollectionViewCell {
     
     static let identifier = "CatalogueCell"
-    weak var delegate: CatalogueCellDelegate?/*CatalogueViewController?*/
+    weak var delegate: CatalogueCellDelegate?
     var sneaker: Sneaker?
     
     let favoriteButton = UIButton()
@@ -117,7 +118,8 @@ extension CatalogueCell {
         sneaker.isFavorite.toggle()
         
         favoriteButton.setImage(UIImage(systemName: sneaker.isFavorite ? "heart.fill" : "heart"), for: .normal)
-        CatalogueDataManager.shared.addToFavorites(sneaker: sneaker)
+        
+        delegate?.didTapFavorite(for: sneaker)
     }
 }
 

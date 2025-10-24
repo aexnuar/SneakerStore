@@ -39,8 +39,10 @@
 		0B2916A92E82CFAE00E487F7 /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2916A82E82CFAE00E487F7 /* URLManager.swift */; };
 		0B2916AB2E82CFC500E487F7 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */; };
 		0B4EC27C2E96CD2A008E41A8 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EC27B2E96CD2A008E41A8 /* ImageManager.swift */; };
+		0B4EC27F2EA79981008E41A8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4EC27E2EA79981008E41A8 /* CoreData.framework */; };
+		0B4EC2812EA7BFB7008E41A8 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4EC2802EA7BFB7008E41A8 /* StorageManager.swift */; };
 		0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */; };
-		0BD1D43B2E968AD7009ED718 /*  ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D43A2E968AD7009ED718 /*  ImageCache.swift */; };
+		0BD1D43B2E968AD7009ED718 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD1D43A2E968AD7009ED718 /* ImageCache.swift */; };
 		0BD30C042E75928F00A99695 /* EmptyCartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C032E75928F00A99695 /* EmptyCartView.swift */; };
 		0BD30C062E75B2ED00A99695 /* EmptyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C052E75B2ED00A99695 /* EmptyCartViewController.swift */; };
 		0BD30C0D2E75BD8D00A99695 /* UINavigationController+CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD30C0C2E75BD8D00A99695 /* UINavigationController+CloseButton.swift */; };
@@ -83,8 +85,10 @@
 		0B2916A82E82CFAE00E487F7 /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0B4EC27B2E96CD2A008E41A8 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		0B4EC27E2EA79981008E41A8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0B4EC2802EA7BFB7008E41A8 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		0B86447B2E43BCD3002A91E7 /* SneakerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerViewModel.swift; sourceTree = "<group>"; };
-		0BD1D43A2E968AD7009ED718 /*  ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = " ImageCache.swift"; sourceTree = "<group>"; };
+		0BD1D43A2E968AD7009ED718 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		0BD30C032E75928F00A99695 /* EmptyCartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView.swift; sourceTree = "<group>"; };
 		0BD30C052E75B2ED00A99695 /* EmptyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartViewController.swift; sourceTree = "<group>"; };
 		0BD30C0C2E75BD8D00A99695 /* UINavigationController+CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+CloseButton.swift"; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B4EC27F2EA79981008E41A8 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				0B168B232DBA83F600E27781 /* SneakerStore */,
+				0B4EC27D2EA79980008E41A8 /* Frameworks */,
 				0B168AFC2DBA838800E27781 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,7 +190,8 @@
 				0B2916AA2E82CFC500E487F7 /* NetworkManager.swift */,
 				0B168B642DCA740400E27781 /* CatalogueDataManager.swift */,
 				0B168B5C2DC388AF00E27781 /* CartDataManager.swift */,
-				0BD1D43A2E968AD7009ED718 /*  ImageCache.swift */,
+				0BD1D43A2E968AD7009ED718 /* ImageCache.swift */,
+				0B4EC2802EA7BFB7008E41A8 /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,6 +242,14 @@
 				0B168B1A2DBA83F600E27781 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		0B4EC27D2EA79980008E41A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B4EC27E2EA79981008E41A8 /* CoreData.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		0BD30C0B2E75BD4B00A99695 /* Extensions */ = {
@@ -331,12 +346,13 @@
 				0B168B472DBBB01300E27781 /* UILabelExtension.swift in Sources */,
 				0B86447C2E43BCD3002A91E7 /* SneakerViewModel.swift in Sources */,
 				0B168B442DBBA75400E27781 /* CatalogueCell.swift in Sources */,
-				0BD1D43B2E968AD7009ED718 /*  ImageCache.swift in Sources */,
+				0BD1D43B2E968AD7009ED718 /* ImageCache.swift in Sources */,
 				0BD30C0D2E75BD8D00A99695 /* UINavigationController+CloseButton.swift in Sources */,
 				0B168B392DBA8E0500E27781 /* SneakerDetailViewController.swift in Sources */,
 				0B168B5D2DC388AF00E27781 /* CartDataManager.swift in Sources */,
 				0B1F03B02DDF87B60050EC53 /* SneakerCarouselView.swift in Sources */,
 				0BD30C0F2E7712F100A99695 /* EmptyCartCell.swift in Sources */,
+				0B4EC2812EA7BFB7008E41A8 /* StorageManager.swift in Sources */,
 				0B168B532DBFE20200E27781 /* CartView.swift in Sources */,
 				0B168B512DBFDCE400E27781 /* CartCell.swift in Sources */,
 				0B168B372DBA8DD200E27781 /* CatalogueViewController.swift in Sources */,

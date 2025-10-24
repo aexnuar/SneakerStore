@@ -25,7 +25,7 @@ class CatalogueDataManager {
         }
     }
     
-    func removeFromFavorites(sneaker: Sneaker) {
+    func removeFromFavorites(_ sneaker: Sneaker) {
         guard let index = favorites.firstIndex(of: sneaker) else { return }
         favorites.remove(at: index)
         
@@ -58,6 +58,10 @@ class CatalogueDataManager {
     
     func setCatalogue(catalogue: [Sneaker]) {
         self.catalogue = catalogue
+    }
+    
+    func setFavorites(favorites: [Sneaker]) {
+        self.favorites = favorites
     }
 }
 

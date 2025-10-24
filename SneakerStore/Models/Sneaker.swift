@@ -16,10 +16,6 @@ struct Sneaker: Equatable, Codable {
     static func == (lhs: Sneaker, rhs: Sneaker) -> Bool { // !
         return lhs.id == rhs.id
     }
-    
-//    static func getCatalogue(value: [Sneaker]) -> [Sneaker] { // !
-//        return value
-//    }
 }
 
 struct Size: Equatable, Codable {

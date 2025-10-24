@@ -28,6 +28,7 @@ class FavoritesViewController: UIViewController {
         mainView.collectionView.delegate = self
         
         setupNavigationBar()
+        loadFavorites()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,6 +66,14 @@ extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - Private methods
 extension FavoritesViewController {
+    private func loadFavorites() {
+        let favorites = StorageManager.shared.fetchData(filteredBy: .isFavorite)
+        
+        CatalogueDataManager.shared.setFavorites(favorites: favorites)
+
+        print("Favorites count: \(CatalogueDataManager.shared.getFavoritesCount())")
+    }
+    
     private func configureItemsTitle() {
         let favoritesCount = CatalogueDataManager.shared.getFavoritesCount()
         
@@ -83,22 +92,7 @@ extension FavoritesViewController {
         ]
         
         navigationController?.navigationBar.standardAppearance = appearance
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(
-//            image: UIImage(systemName: "cart"),
-//            style: .plain,
-//            target: self,
-//            action: #selector(showCart)
-//        )
     }
-    
-//    @objc private func showCart() {
-//        let cartVC = CartViewController()
-//        let navCartVC = UINavigationController(rootViewController: cartVC)
-//        navCartVC.modalPresentationStyle = .fullScreen
-//        
-//        present(navCartVC, animated: true)
-//    }
 }
 
 // MARK: - FavoriteCellReloadDelegate
@@ -109,8 +103,11 @@ extension FavoritesViewController: FavoriteCellDelegate {
         
         favoritesDelegate?.favoritesDidUpdate(for: sneaker)
         
-        CatalogueDataManager.shared.removeFromFavorites(sneaker: sneaker) // удаление ячейки только после делегирования ее каталогу
+        CatalogueDataManager.shared.removeFromFavorites(sneaker) // удаление ячейки только после делегирования ее каталогу
+        StorageManager.shared.addOrUpdate(sneaker: sneaker, isFavorite: false)
+        
         mainView.collectionView.reloadData()
+        
         configureItemsTitle()
     }
 }
